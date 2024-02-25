@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{shop.css}">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>World Peas | Shop</title>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a href="home.html" th:href="@{/}" class="homeButton">World Peas</a>
+            <a href="shop.html" th:href="@{/shop}" class="shopButton">Shop</a>
+            <a href="news.html" th:href="@{/news}" class="newsButton">Newstand</a>
+            <a href="about.html" th:href="@{/about}" class="aboutButton">Who we are</a>
+            <a href="profile.html" th:href="@{/profile}" class="profileButton">My profile</a>
+            <a href="basket.html" th:href="@{/basket}" class="basketButton">Basket (<span th:text="${basketCount}"></span>)</a>
+        </nav>
+    </header>
+    <main>
+        <div class="sortHeader">
+            <hr class="divider">
+            <h1 class="caption">Produce</h1>
+            <p class="todayLocate"><span class="boldFresh">Fresh — </span><span class="today" th:text="${data}"></span></p>
+            <button class="defaultSortButton"></button>
+            <button class="a-zSortButton"></button>
+            <button class="listViewButton"></button> 
+        </div>
+    </main>
+</body>
+</html>

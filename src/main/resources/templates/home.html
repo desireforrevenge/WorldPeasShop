@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{styles.css}">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="createPaste.js"></script>
+    <title>World Peas</title>
+</head>
+<body>
+<!--<p th:text="|Привет, ${title}!|"></p>-->
+    <header>
+        <nav class="nav">
+            <a href="home.html" th:href="@{/}" class="homeButton">World Peas</a>
+            <a href="shop.html" th:href="@{/shop}" class="shopButton">Shop</a>
+            <a href="news.html" th:href="@{/news}" class="newsButton">Newstand</a>
+            <a href="about.html" th:href="@{/about}" class="aboutButton">Who we are</a>
+            <a href="profile.html" th:href="@{/profile}" class="profileButton">My profile</a>
+            <a href="basket.html" th:href="@{/basket}" class="basketButton">Basket (<span th:text="${basketCount}"></span>)</a>
+        </nav>
+    </header>
+    <main>
+        <p class="mainText">
+            We’re farmers, purveyors, and eaters of organically grown food.
+        </p>
+        <a href="shop.html" th:href="@{/shop}" class="browseOurShop">
+            Browse our shop
+        </a>
+        <img class="plantsPicture" th:src="@{https://i.pinimg.com/736x/88/fd/51/88fd516da81a8e36ce4ed35e8ab17a7a.jpg}" alt="листья"/>
+        <img class="stillLifePicture" th:src="@{https://i.pinimg.com/736x/bb/77/1a/bb771a96a44e359d0cbafa86e1c6816d.jpg}" alt="натюрморт"/>
+        <p class="descriptionPicturesText"><span class="boldCalifornia">Central California</span> — The person who grew these was located in Central California and, er, hopefully very well-compensated.</p>
+        <p class="whatWeBelieveText">WHAT WE BELIEVE</p>
+        <p class="believeInProduceText">We believe in produce. Tasty produce. Produce like:
+            <br><br>
+            Apples. Oranges. Limes. Lemons. Guavas. Carrots. Cucumbers. Jicamas. Cauliflowers. Brussels sprouts. Shallots. Japanese eggplants. Asparagus. Artichokes—Jerusalem artichokes, too. Radishes. Broccoli. Baby broccoli. Broccolini. Bok choy. Scallions. Ginger. Cherries. Raspberries. Cilantro. Parsley. Dill. 
+            <br><br>
+            What are we forgetting?
+            <br><br>
+            Oh! Onions. Yams. Avocados. Lettuce. Arugula (to some, “rocket”). Persian cucumbers, in addition to aforementioned “normal” cucumbers. Artichokes. Zucchinis. Pumpkins. Squash (what some cultures call pumpkins). Sweet potatoes and potato-potatoes. Jackfruit. Monk fruit. Fruit of the Loom. Fruits of our labor (this website). Sorrel. Pineapple. Mango. Gooseberries. Blackberries. Tomatoes. Heirloom tomatoes. Beets. Chives. Corn. Endive. Escarole, which, we swear, we’re vendors of organic produce, but if you asked us to describe what escaroles are...
+        </p>
+
+    </main>
+</body>
+</html>

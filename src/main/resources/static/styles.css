@@ -1,0 +1,307 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus, :active {outline: none;}
+a:focus, a:active {outline: none;}
+nav, footer, header, aside {display: block;}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-style: 100%;
+    line-height: 1;
+    font-style: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {font-family: inherit;}
+input::-ms-clear {display: none;}
+button {cursor:pointer;}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a, a:visited {text-decoration: none;}
+a:hover {text-decoration: none;}
+ul li {list-style-type: none;}
+img {vertical-align: top;}
+
+h1, h2, h3, h4, h5, h6 {
+    font-style: inherit;
+    font-weight: 400;
+}
+
+
+
+/* ---------------------------------------- */
+/* ( : 3 * 4 )
++5px на ссылку */
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+/* Newsreader, Inter */
+/* "Newsreader", serif
+"Inter", sans-serif */
+
+
+
+body, header, html {
+    margin: 0 auto;
+}
+body {
+    background-color: #ffffffd8;
+}
+header {
+    height: calc(112px / 3 * 4);
+    
+}
+.homeButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(96px / 3 * 4);
+    top: calc(41px / 3 * 4);
+    bottom: calc(31px / 3 * 4);
+
+    color: #426B1F;
+    font-family: "Newsreader", serif;
+    font-size: calc(32px / 3 * 4);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -1%;
+    text-align: left;
+
+    width: calc(156px / 3 * 4);
+    height: calc(37px / 3 * 4);
+}
+.shopButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(744px / 3 * 4);
+    top: calc(45.5px / 3 * 4);
+    bottom: calc(45.5px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px / 3 * 4);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    width: calc(44px / 3 * 4);
+    height: calc(26px / 3 * 4);
+}
+.newsButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(831px / 3 * 4);
+    top: calc(45.5px / 3 * 4);
+    bottom: calc(45.5px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px / 3 * 4);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    width: calc(82px / 3 * 4);
+    height: calc(26px / 3 * 4);
+}
+.aboutButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(956px / 3 * 4);
+    top: calc(45.5px / 3 * 4);
+    bottom: calc(45.5px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px / 3 * 4);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    width: calc(95px / 3 * 4);
+    height: calc(26px / 3 * 4);
+}
+.profileButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(1094px / 3 * 4);
+    top: calc(45.5px / 3 * 4);
+    bottom: calc(45.5px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px / 3 * 4);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    width: calc(81px / 3 * 4);
+    height: calc(26px / 3 * 4);
+}
+.basketButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(1218px / 3 * 4);
+    top: calc(32px / 3 * 4);
+    bottom: calc(32px / 3 * 4);
+    width: calc(126px / 3 * 4); 
+    height: calc(48px / 3 * 4);
+    border-radius: 8px;
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px / 3 * 4);
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0%;
+    justify-content: center;
+    
+    background-color: #426B1F;
+
+    transition: filter 0.3s ease;
+}
+.basketButton:hover {
+    filter: brightness(0.8);
+}
+
+.mainText {
+    position: absolute;
+    left: calc(217px / 3 * 4);
+    top: calc(279px / 3 * 4);
+    width: calc(1020px / 3 * 4);
+    height: calc(154px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: Newsreader;
+    font-size: calc(64px / 3 * 4);
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -2%;
+    text-align: center;
+
+    text-shadow: 0px, 4px, 4px, rgba(0, 0, 0, 0.25);
+    box-shadow: 0px, 4px, 4px, rgba(0, 0, 0, 0.25);
+
+    stroke: black;
+}
+.browseOurShop {   
+    position: absolute;
+    width: calc(227px / 3 * 4);
+    height: calc(64px / 3 * 4);
+    left: calc(607px / 3 * 4);
+    top: calc(481px / 3 * 4);
+    bottom: calc(1547px / 3 * 4);
+
+    border-radius: 8px;
+    background: #426B1F;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    color: rgb(255, 255, 255);
+    font-family: "Inter", sans-serif;
+    font-size: calc(20px / 3 * 4);
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0%;
+
+    transition: filter 0.3s ease;
+}
+.browseOurShop:hover {
+    filter: brightness(0.8);
+}
+.plantsPicture {
+    position: absolute;
+    width: calc(504px / 3 * 4);
+    height: calc(693px / 3 * 4);
+    left: calc(96px / 3 * 4);
+    top: calc(701px / 3 * 4);
+    bottom: calc(698px / 3 * 4);
+}
+.stillLifePicture {
+    position: absolute;
+    width: calc(780px / 3 * 4);
+    height: calc(480px / 3 * 4);
+    left: calc(660px / 3 * 4);
+    top: calc(791px / 3 * 4);
+    bottom: calc(821px / 3 * 4);
+}
+.descriptionPicturesText {
+    position: absolute;
+    left: calc(660px / 3 * 4);
+    top: calc(1287px / 3 * 4);
+    width: calc(736px / 3 * 4);
+    height: calc(44px / 3 * 4);
+    bottom: calc(761px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(14px / 3 * 4);
+    font-weight: 300;
+    line-height: 160%;
+    letter-spacing: -1%;
+    text-align: left;
+}
+.boldCalifornia {
+    font-weight: 600;
+}
+.whatWeBelieveText {
+    position: absolute;
+    left: calc(96px / 3 * 4);
+    top: calc(1555px / 3 * 4);
+    width: calc(181px / 3 * 4);
+    height: calc(22px / 3 * 4);
+    bottom: calc(515px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(14px / 3 * 4);
+    font-weight: 600;
+    line-height: 160%;
+    letter-spacing: 4%;
+    text-align: left;
+}
+.believeInProduceText {
+    position: absolute;
+    left: calc(309px / 3 * 4);
+    top: calc(1550px / 3 * 4);
+    width: calc(822px / 3 * 4);
+    height: calc(512px / 3 * 4);
+    bottom: calc(30px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(20px / 3 * 4);
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 0%;
+    text-align: left;
+}
