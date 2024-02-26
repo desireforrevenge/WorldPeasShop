@@ -291,7 +291,7 @@ header {
     display: inline-block;
     justify-content: center;
 }
-.listViewButton {
+.priceSortButton {
     position: absolute;
     width: calc(101px / 3 * 4);
     height: calc(40px / 3 * 4);
@@ -318,3 +318,17 @@ header {
     justify-content: center;
 }
 /* TODO: нужно будет сделать работающие кнопки. При выборе какого-либо режима бэкграунд кнопки должен становиться rgb(66, 107, 31), а текст на кнопке - белым. */
+.active {
+    background-color: #426B1F;
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+.productList {
+    position: absolute;
+
+    left: calc(96px / 3 * 4);
+    top: calc(301px / 3 * 4);
+}
