@@ -1,6 +1,7 @@
 package com.org.revenge.devstudio.controllers;
 
 import com.org.revenge.devstudio.code.BasketCounter;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,16 +13,6 @@ public class HomeController {
         model.addAttribute("basketCount", BasketCounter.getProductsCount());
 
         return "home";
-    }
-
-
-
-
-    @GetMapping("/test")
-    public String test(Model model) {
-        model.addAttribute("basketCount", BasketCounter.getProductsCount());
-
-        return "test";
     }
 //    @PostMapping("/create")
 //    @ResponseBody
