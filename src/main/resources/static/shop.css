@@ -317,18 +317,130 @@ header {
     display: inline-block;
     justify-content: center;
 }
-/* TODO: нужно будет сделать работающие кнопки. При выборе какого-либо режима бэкграунд кнопки должен становиться rgb(66, 107, 31), а текст на кнопке - белым. */
 .active {
     background-color: #426B1F;
     color: rgb(255, 255, 255);
+    border: 0;
+}
+.productList {
+    position: relative;
+    width: calc(1248px / 3 * 4);
+    height: calc(718px / 3 * 4);
+    left: calc(96px / 3 * 4);
+    top: calc(180px / 3 * 4);
+}
+.product {
+    position: absolute;
+    width: calc(395px / 3 * 4);
+    height: calc(592px);
+
+    box-sizing: border-box;
+    border: 2px solid rgb(230, 230, 230);
+    border-radius: calc(24px / 3 * 4);
+    background: rgb(250, 250, 245);
+}
+.heirloomTomatoProduct {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.sweetOnionProduct {
+    position: absolute;
+    left: calc(427px / 3 * 4);
+    top: 0px;
+}
+.organicGingerProduct {
+    position: absolute;
+    left: calc(854px / 3 * 4);
+    top: 0px;
 }
 
 
 
+[id="1"] {
+    left: 0px;
+    top: 0px;
+}
+[id="2"] {
+    left: calc(427px / 3 * 4);
+    top: 0px;
+}
+[id="3"] {
+    left: calc(854px / 3 * 4);
+    top: 0px;
+}
 
-.productList {
-    position: absolute;
+[id="1_box"] {
+    left: 0px;
+    top: 0px;
+}
+[id="2_box"] {
+    left: calc(427px / 3 * 4);
+    top: 0px;
+}
+[id="3_box"] {
+    left: calc(854px / 3 * 4);
+    top: 0px;
+}
 
-    left: calc(96px / 3 * 4);
-    top: calc(301px / 3 * 4);
+
+
+.heirloomTomatoProduct .name {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: #426B1F;
+}
+.heirloomTomatoProduct .price {
+
+}
+.heirloomTomatoProduct .grown {
+
+}
+.heirloomTomatoProduct .frame {
+
+}
+.heirloomTomatoProduct .plus {
+
+} 
+.heirloomTomatoProduct .minus {
+
+}
+
+.sweetOnionProduct .name {
+
+}
+.sweetOnionProduct .price {
+
+}
+.sweetOnionProduct .grown {
+
+}
+.sweetOnionProduct .frame {
+
+}
+.sweetOnionProduct .plus {
+
+} 
+.sweetOnionProduct .minus {
+
+}
+
+.organicGingerProduct .name {
+
+}
+.organicGingerProduct .price {
+
+}
+.organicGingerProduct .grown {
+
+}
+.organicGingerProduct .frame {
+
+}
+.organicGingerProduct .plus {
+
+} 
+.organicGingerProduct .minus {
+
 }
