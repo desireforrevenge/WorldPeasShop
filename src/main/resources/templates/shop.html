@@ -29,150 +29,252 @@
                 <button id="priceSortButton" th:class="${sortType == 'price' ? 'active priceSortButton' : 'priceSortButton'}" onclick="sortByPrice(); resetButtonStyles(); changeButtonStyle(this)">Price view</button>
             </div>
             <div id="productList" class="productList">
-                <div class="product heirloomTomatoProduct" data-index="1" data-name="h" data-price="5.99">
-                    <div class="name">Heirloom tomato</div>
-                    <div class="price">$5.99 / lb</div>
-                    <div class="grown">Grown in San Juan Capistrano, CA</div>
+                <div class="product heirloomTomatoProduct" data-index="1" data-name="h" data-price="5.99"></div>
+                    <div class="name heirloomTomatoName">Heirloom tomato</div>
+                    <div class="price heirloomTomatoPrice">$5.99 / lb</div>
+                    <div class="grown heirloomTomatoGrown">Grown in San Juan Capistrano, CA</div>
 
-                    <div class="minus"></div>
-                    <div class="plus"></div>
-                    <div class="frame"></div>
-                    <!-- внутри frame должен будет еще лежать тег с кол-вом добавленных товаров в корзину -->
-                </div>
-                <div class="product sweetOnionProduct" data-index="2" data-name="s" data-price="2.99">
-                    <div class="name">Sweet onion</div>
-                    <div class="price">$2.99 / lb</div>
-                    <div class="grown">Grown in Yosemite National Park, CA</div>
+                    <div class="minus heirloomTomatoMinus"></div>
+                    <div class="plus heirloomTomatoPlus"></div>
+                    <div class="frame heirloomTomatoFrame"></div>
+                    <!-- это НЕ ДОЧЕРНИЕ классы!!! -->
+                <div class="product sweetOnionProduct" data-index="2" data-name="s" data-price="2.99"></div>
+                    <div class="name sweetOnionName">Sweet onion</div>
+                    <div class="price sweetOnionPrice">$2.99 / lb</div>
+                    <div class="grown sweetOnionGrown">Grown in Yosemite National Park, CA</div>
                     
-                    <div class="minus"></div>
-                    <div class="plus"></div>
-                    <div class="frame"></div>
-                    <!-- внутри frame должен будет еще лежать тег с кол-вом добавленных товаров в корзину -->
-                </div>
-                <div class="product organicGingerProduct" data-index="3" data-name="o" data-price="12.99">
-                    <div class="name">Organic ginger</div>
-                    <div class="price">$12.99 / lb</div>
-                    <div class="grown">Grown in Huntington Beach, CA</div>
+                    <div class="minus sweetOnionMinus"></div>
+                    <div class="plus sweetOnionPlus"></div>
+                    <div class="frame sweetOnionFrame"></div>
+                     <!-- это НЕ ДОЧЕРНИЕ классы!!! -->
+                <div class="product organicGingerProduct" data-index="3" data-name="o" data-price="12.99"></div>
+                    <div class="name organicGingerName">Organic ginger</div>
+                    <div class="price organicGingerPrice">$12.99 / lb</div>
+                    <div class="grown organicGingerGrown">Grown in Huntington Beach, CA</div>
 
-                    <div class="minus"></div>
-                    <div class="plus"></div>
-                    <div class="frame"></div>
-                    <!-- внутри frame должен будет еще лежать тег с кол-вом добавленных товаров в корзину -->
-                </div>
+                    <div class="minus organicGingerMinus"></div>
+                    <div class="plus organicGingerPlus"></div>
+                    <div class="frame organicGingerFrame"></div>
+                     <!-- это НЕ ДОЧЕРНИЕ классы!!! -->
             </div>            
         </div>
     </main>
     <script th:inline="javascript">
         function sortByName() {
             var productList = document.getElementById('productList');
+
+            var elementsWithClass = document.querySelectorAll('.product');
+            var elementsWithoutClass = document.querySelectorAll(':not(.product)');
+
+            elementsWithClass = Array.from(elementsWithClass);
+            elementsWithoutClass = Array.from(elementsWithoutClass);
             
-            var items = productList.querySelectorAll("div");
-            
-            items = Array.from(items);
-            
-            items.sort(function(a, b) {
-                var nameA = a.getAttribute('data-name').toUpperCase();
-                var nameB = b.getAttribute('data-name').toUpperCase();
+            elementsWithClass.sort(function(a, b) {
+                var nameA = a.getAttribute('data-name');
+                var nameB = b.getAttribute('data-name');
                 return nameA.localeCompare(nameB);
             });
             
-            for (var index = 0; index < items.length; index++) {
-                 var item = items[index];
+            for (var index = 0; index < elementsWithClass.length; index++) {
+                var element = elementsWithClass[index];
 
-                item.id = (index + 1) + '';
-
-                var items_child = item.children;
-                for (var i = 0; i < items_child.length; i++) {
-                    if (i === 0 ) items_child[i].id = 'name_' + item.id;
-                    else if (i === 1) items_child[i].id = 'price_' + item.id;
-                    else if (i === 2) items_child[i].id = 'grown_' + item.id;
-
-                    else if (i === 3) items_child[i].id = 'minus_' + item.id;
-                    else if (i === 4) items_child[i].id = 'plus_' + item.id;
-                    else if (i === 5) items_child[i].id = 'frame_' + item.id;
-
-                    item.appendChild(items_child[i]);
-                }
+                element.id = (index + 1) + '';
                 
-                document.getElementById('productList').appendChild(item);
+                document.getElementById('productList').appendChild(element);
             }
+            
+            for (var index = 0; index < elementsWithClass.length; index++) {
+                if (elementsWithClass[index].getAttribute('data-name') === 'h') {
+                    document.querySelector('.heirloomTomatoName').id = 'name_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoName'));
+                    document.querySelector('.heirloomTomatoPrice').id = 'price_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPrice'));
+                    document.querySelector('.heirloomTomatoGrown').id = 'grown_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoGrown'));
 
+                    // document.getElementById('productList').style.background = 'green';
 
+                    document.querySelector('.heirloomTomatoMinus').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinus'));
+                    document.querySelector('.heirloomTomatoPlus').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlus'));
+                    document.querySelector('.heirloomTomatoFrame').id = 'frame_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoFrame'));
+                } else if (elementsWithClass[index].getAttribute('data-name') === 's') {
+                    document.querySelector('.sweetOnionName').id = 'name_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionName'));
+                    document.querySelector('.sweetOnionPrice').id = 'price_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPrice'));
+                    document.querySelector('.sweetOnionGrown').id = 'grown_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionGrown'));
 
+                    document.querySelector('.sweetOnionMinus').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinus'));
+                    document.querySelector('.sweetOnionPlus').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlus'));
+                    document.querySelector('.sweetOnionFrame').id = 'frame_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionFrame'));
+                } else if (elementsWithClass[index].getAttribute('data-name') === 'o') {
+                    document.querySelector('.organicGingerName').id = 'name_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerName'));
+                    document.querySelector('.organicGingerPrice').id = 'price_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPrice'));
+                    document.querySelector('.organicGingerGrown').id = 'grown_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerGrown'));
 
+                    document.querySelector('.organicGingerMinus').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinus'));
+                    document.querySelector('.organicGingerPlus').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlus'));
+                    document.querySelector('.organicGingerFrame').id = 'frame_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerFrame'));
+                }
+            }
         }
 
         function sortByPrice() {
             var productList = document.getElementById('productList');
-            
-            var items = productList.querySelectorAll("div");
 
-            items = Array.from(items);
+            var elementsWithClass = document.querySelectorAll('.product');
+            var elementsWithoutClass = document.querySelectorAll(':not(.product)');
+
+            elementsWithClass = Array.from(elementsWithClass);
+            elementsWithoutClass = Array.from(elementsWithoutClass);
             
-            items.sort(function(a, b) {
+            elementsWithClass.sort(function(a, b) {
             var priceA = parseInt(a.getAttribute('data-price'));
             var priceB = parseInt(b.getAttribute('data-price'));
             return priceA - priceB;
             });
 
-            for (var index = 0; index < items.length; index++) {
-                var item = items[index];
+            for (var index = 0; index < elementsWithClass.length; index++) {
+                var element = elementsWithClass[index];
 
-                item.id = (index + 1) + '';
-
-                var items_child = item.children;
-                for (var i = 0; i < items_child.length; i++) {
-                    if (i === 0 ) items_child[i].id = 'name_' + item.id;
-                    else if (i === 1) items_child[i].id = 'price_' + item.id;
-                    else if (i === 2) items_child[i].id = 'grown_' + item.id;
-
-                    else if (i === 3) items_child[i].id = 'minus_' + item.id;
-                    else if (i === 4) items_child[i].id = 'plus_' + item.id;
-                    else if (i === 5) items_child[i].id = 'frame_' + item.id;
-
-                    item.appendChild(items_child[i]);
-                }
+                element.id = (index + 1) + '';
                 
-                document.getElementById('productList').appendChild(item);
+                document.getElementById('productList').appendChild(element);
+            }
+            
+            for (var index = 0; index < elementsWithClass.length; index++) {
+                if (elementsWithClass[index].getAttribute('data-name') === 'h') {
+                    document.querySelector('.heirloomTomatoName').id = 'name_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoName'));
+                    document.querySelector('.heirloomTomatoPrice').id = 'price_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPrice'));
+                    document.querySelector('.heirloomTomatoGrown').id = 'grown_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoGrown'));
+
+                    // document.getElementById('productList').style.background = 'red';
+
+                    document.querySelector('.heirloomTomatoMinus').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinus'));
+                    document.querySelector('.heirloomTomatoPlus').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlus'));
+                    document.querySelector('.heirloomTomatoFrame').id = 'frame_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoFrame'));
+                } else if (elementsWithClass[index].getAttribute('data-name') === 's') {
+                    document.querySelector('.sweetOnionName').id = 'name_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionName'));
+                    document.querySelector('.sweetOnionPrice').id = 'price_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPrice'));
+                    document.querySelector('.sweetOnionGrown').id = 'grown_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionGrown'));
+
+                    document.querySelector('.sweetOnionMinus').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinus'));
+                    document.querySelector('.sweetOnionPlus').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlus'));
+                    document.querySelector('.sweetOnionFrame').id = 'frame_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionFrame'));
+                } else if (elementsWithClass[index].getAttribute('data-name') === 'o') {
+                    document.querySelector('.organicGingerName').id = 'name_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerName'));
+                    document.querySelector('.organicGingerPrice').id = 'price_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPrice'));
+                    document.querySelector('.organicGingerGrown').id = 'grown_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerGrown'));
+
+                    document.querySelector('.organicGingerMinus').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinus'));
+                    document.querySelector('.organicGingerPlus').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlus'));
+                    document.querySelector('.organicGingerFrame').id = 'frame_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerFrame'));
+                }
             }
             
             }
             function sortDefault() {
-    var productList = document.getElementById('productList');
+                var productList = document.getElementById('productList');
+
+                var elementsWithClass = document.querySelectorAll('.product');
+                var elementsWithoutClass = document.querySelectorAll(':not(.product)');
+
+                elementsWithClass = Array.from(elementsWithClass);
+                elementsWithoutClass = Array.from(elementsWithoutClass);
     
-    var items = productList.querySelectorAll("div");
-    
-    items = Array.from(items);
-    
-    items.sort(function(a, b) {
-        var indexA = parseInt(a.getAttribute('data-index'));
-        var indexB = parseInt(b.getAttribute('data-index'));
-        return indexA - indexB;
-    });
+                elementsWithClass.sort(function(a, b) {
+                    var indexA = parseInt(a.getAttribute('data-index'));
+                    var indexB = parseInt(b.getAttribute('data-index'));
+                    return indexA - indexB;
+                });
+                for (var index = 0; index < elementsWithClass.length; index++) {
+                var element = elementsWithClass[index];
 
-    for (var index = 0; index < items.length; index++) {
-        var item = items[index];
-        
-        item.id = (index + 1) + '';
+                element.id = (index + 1) + '';
+                
+                document.getElementById('productList').appendChild(element);
+            }
+            
+            for (var index = 0; index < elementsWithClass.length; index++) {
+                if (elementsWithClass[index].getAttribute('data-name') === 'h') {
+                    document.querySelector('.heirloomTomatoName').id = 'name_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoName'));
+                    document.querySelector('.heirloomTomatoPrice').id = 'price_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPrice'));
+                    document.querySelector('.heirloomTomatoGrown').id = 'grown_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoGrown'));
 
-        var items_child = item.children;
 
-        for (var i = 0; i < items_child.length; i++) {
-            var childElement = document.getElementById('productList').createElement('div');
-            childElement.innerHTML = items_child[i].innerHTML;
+                    // document.getElementById('productList').style.background = 'yellow';
 
-            if (i === 0) childElement.id = 'name_' + item.id;
-            else if (i === 1) childElement.id = 'price_' + item.id;
-            else if (i === 2) childElement.id = 'grown_' + item.id;
-            else if (i === 3) childElement.id = 'minus_' + item.id;
-            else if (i === 4) childElement.id = 'plus_' + item.id;
-            else if (i === 5) childElement.id = 'frame_' + item.id;
 
-            item.appendChild(childElement);
-        }
-        
-        document.getElementById('productList').appendChild(item);
-    }
+                    document.querySelector('.heirloomTomatoMinus').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinus'));
+                    document.querySelector('.heirloomTomatoPlus').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlus'));
+                    document.querySelector('.heirloomTomatoFrame').id = 'frame_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoFrame'));
+                } else if (elementsWithClass[index].getAttribute('data-name') === 's') {
+                    document.querySelector('.sweetOnionName').id = 'name_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionName'));
+                    document.querySelector('.sweetOnionPrice').id = 'price_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPrice'));
+                    document.querySelector('.sweetOnionGrown').id = 'grown_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionGrown'));
+
+                    document.querySelector('.sweetOnionMinus').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinus'));
+                    document.querySelector('.sweetOnionPlus').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlus'));
+                    document.querySelector('.sweetOnionFrame').id = 'frame_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionFrame'));
+                } else if (elementsWithClass[index].getAttribute('data-name') === 'o') {
+                    document.querySelector('.organicGingerName').id = 'name_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerName'));
+                    document.querySelector('.organicGingerPrice').id = 'price_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPrice'));
+                    document.querySelector('.organicGingerGrown').id = 'grown_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerGrown'));
+
+                    document.querySelector('.organicGingerMinus').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinus'));
+                    document.querySelector('.organicGingerPlus').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlus'));
+                    document.querySelector('.organicGingerFrame').id = 'frame_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerFrame'));
+                }
+            }
 }
 
         
