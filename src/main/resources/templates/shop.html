@@ -29,32 +29,35 @@
                 <button id="priceSortButton" th:class="${sortType == 'price' ? 'active priceSortButton' : 'priceSortButton'}" onclick="sortByPrice(); resetButtonStyles(); changeButtonStyle(this)">Price view</button>
             </div>
             <div id="productList" class="productList">
-                <div class="product heirloomTomatoProduct" data-index="1" data-name="h" data-price="5.99">Product H - $5.99
+                <div class="product heirloomTomatoProduct" data-index="1" data-name="h" data-price="5.99">
                     <div class="name">Heirloom tomato</div>
                     <div class="price">$5.99 / lb</div>
                     <div class="grown">Grown in San Juan Capistrano, CA</div>
 
-                    <div class="frame"></div>
                     <div class="minus"></div>
                     <div class="plus"></div>
+                    <div class="frame"></div>
+                    <!-- внутри frame должен будет еще лежать тег с кол-вом добавленных товаров в корзину -->
                 </div>
-                <div class="product sweetOnionProduct" data-index="2" data-name="s" data-price="2.99">Product S - $2.99
+                <div class="product sweetOnionProduct" data-index="2" data-name="s" data-price="2.99">
                     <div class="name">Sweet onion</div>
                     <div class="price">$2.99 / lb</div>
                     <div class="grown">Grown in Yosemite National Park, CA</div>
                     
-                    <div class="frame"></div>
                     <div class="minus"></div>
                     <div class="plus"></div>
+                    <div class="frame"></div>
+                    <!-- внутри frame должен будет еще лежать тег с кол-вом добавленных товаров в корзину -->
                 </div>
-                <div class="product organicGingerProduct" data-index="3" data-name="o" data-price="12.99">Product O - $12.99
+                <div class="product organicGingerProduct" data-index="3" data-name="o" data-price="12.99">
                     <div class="name">Organic ginger</div>
                     <div class="price">$12.99 / lb</div>
                     <div class="grown">Grown in Huntington Beach, CA</div>
 
-                    <div class="frame"></div>
                     <div class="minus"></div>
                     <div class="plus"></div>
+                    <div class="frame"></div>
+                    <!-- внутри frame должен будет еще лежать тег с кол-вом добавленных товаров в корзину -->
                 </div>
             </div>            
         </div>
@@ -76,16 +79,21 @@
             for (var index = 0; index < items.length; index++) {
                  var item = items[index];
 
-
-                 //1
                 item.id = (index + 1) + '';
 
+                var items_child = item.children;
+                for (var i = 0; i < items_child.length; i++) {
+                    if (i === 0 ) items_child[i].id = 'name_' + item.id;
+                    else if (i === 1) items_child[i].id = 'price_' + item.id;
+                    else if (i === 2) items_child[i].id = 'grown_' + item.id;
 
-                //3 (ПРОБОВАТЬ РАЗЛИЧНЫЕ КОМБИНАЦИИ! ПРИМЕР: 312, 213, 123, 231)
-                var items_add = item.querySelectorAll("div");
+                    else if (i === 3) items_child[i].id = 'minus_' + item.id;
+                    else if (i === 4) items_child[i].id = 'plus_' + item.id;
+                    else if (i === 5) items_child[i].id = 'frame_' + item.id;
 
-
-                //2
+                    item.appendChild(items_child[i]);
+                }
+                
                 document.getElementById('productList').appendChild(item);
             }
 
@@ -106,35 +114,67 @@
             var priceB = parseInt(b.getAttribute('data-price'));
             return priceA - priceB;
             });
-            
+
             for (var index = 0; index < items.length; index++) {
-                 var item = items[index];
+                var item = items[index];
 
                 item.id = (index + 1) + '';
-                document.getElementById('productList').appendChild(item);
-            }
-            
-            }
-        function sortDefault() {
-            var productList = document.getElementById('productList');
-            
-            var items = productList.querySelectorAll("div");
-            
-            items = Array.from(items);
-            
-            items.sort(function(a, b) {
-            var indexA = parseInt(a.getAttribute('data-index'));
-            var indexB = parseInt(b.getAttribute('data-index'));
-            return indexA - indexB;
-            });
-            
-            for (var index = 0; index < items.length; index++) {
-                 var item = items[index];
+
+                var items_child = item.children;
+                for (var i = 0; i < items_child.length; i++) {
+                    if (i === 0 ) items_child[i].id = 'name_' + item.id;
+                    else if (i === 1) items_child[i].id = 'price_' + item.id;
+                    else if (i === 2) items_child[i].id = 'grown_' + item.id;
+
+                    else if (i === 3) items_child[i].id = 'minus_' + item.id;
+                    else if (i === 4) items_child[i].id = 'plus_' + item.id;
+                    else if (i === 5) items_child[i].id = 'frame_' + item.id;
+
+                    item.appendChild(items_child[i]);
+                }
                 
-                item.id = (index + 1) + '';
                 document.getElementById('productList').appendChild(item);
             }
+            
+            }
+            function sortDefault() {
+    var productList = document.getElementById('productList');
+    
+    var items = productList.querySelectorAll("div");
+    
+    items = Array.from(items);
+    
+    items.sort(function(a, b) {
+        var indexA = parseInt(a.getAttribute('data-index'));
+        var indexB = parseInt(b.getAttribute('data-index'));
+        return indexA - indexB;
+    });
+
+    for (var index = 0; index < items.length; index++) {
+        var item = items[index];
+        
+        item.id = (index + 1) + '';
+
+        var items_child = item.children;
+
+        for (var i = 0; i < items_child.length; i++) {
+            var childElement = document.getElementById('productList').createElement('div');
+            childElement.innerHTML = items_child[i].innerHTML;
+
+            if (i === 0) childElement.id = 'name_' + item.id;
+            else if (i === 1) childElement.id = 'price_' + item.id;
+            else if (i === 2) childElement.id = 'grown_' + item.id;
+            else if (i === 3) childElement.id = 'minus_' + item.id;
+            else if (i === 4) childElement.id = 'plus_' + item.id;
+            else if (i === 5) childElement.id = 'frame_' + item.id;
+
+            item.appendChild(childElement);
         }
+        
+        document.getElementById('productList').appendChild(item);
+    }
+}
+
         
         
         

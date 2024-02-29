@@ -337,7 +337,8 @@ header {
     box-sizing: border-box;
     border: 2px solid rgb(230, 230, 230);
     border-radius: calc(24px / 3 * 4);
-    background: rgb(250, 250, 245);
+    /* background: rgb(250, 250, 245); */
+
 }
 .heirloomTomatoProduct {
     position: absolute;
@@ -370,77 +371,232 @@ header {
     top: 0px;
 }
 
-[id="1_box"] {
+/* [id="name_1"] {
     left: 0px;
     top: 0px;
-}
-[id="2_box"] {
-    left: calc(427px / 3 * 4);
-    top: 0px;
-}
-[id="3_box"] {
-    left: calc(854px / 3 * 4);
-    top: 0px;
-}
 
-
-
-.heirloomTomatoProduct .name {
     position: relative;
     width: 10px;
     height: 10px;
     background-color: #426B1F;
 }
-.heirloomTomatoProduct .price {
+[id="name_2"] {
+    left: calc(427px / 3 * 4);
+    top: 0px;
 
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: #1d0296;
+}
+[id="name_3"] {
+    left: calc(854px / 3 * 4);
+    top: 0px;
+
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: #ce0d0d;
+} */
+
+
+
+/* .heirloomTomatoProduct .name {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: #426B1F;
+}
+
+.heirloomTomatoProduct .price {
+    position: relative;
+    
 }
 .heirloomTomatoProduct .grown {
-
+    position: relative;
+    
 }
 .heirloomTomatoProduct .frame {
-
+    position: relative;
+    
 }
 .heirloomTomatoProduct .plus {
-
+    position: relative;
+    
 } 
 .heirloomTomatoProduct .minus {
-
+    position: relative;
+    
 }
 
 .sweetOnionProduct .name {
-
+    position: relative;
+    
 }
 .sweetOnionProduct .price {
-
+    position: relative;
+    
 }
 .sweetOnionProduct .grown {
-
+    position: relative;
+    
 }
 .sweetOnionProduct .frame {
-
+    position: relative;
+    
 }
 .sweetOnionProduct .plus {
-
+    position: relative;
+    
 } 
 .sweetOnionProduct .minus {
-
+    position: relative;
+    
 }
 
 .organicGingerProduct .name {
-
+    position: relative;
+    
 }
 .organicGingerProduct .price {
-
+    position: relative;
+    
 }
 .organicGingerProduct .grown {
-
+    position: relative;
+    
 }
 .organicGingerProduct .frame {
-
+    position: relative;
+    
 }
 .organicGingerProduct .plus {
-
+    position: relative;
+    
 } 
 .organicGingerProduct .minus {
+    position: relative;
+    
+} */
+
+
+.name {
+    position: absolute;
+    width: calc(120px / 3 * 4);
+    height: calc(26px / 3 * 4);
+
+    top: calc(320px / 3 * 4);
+    left: calc(24px / 3 * 4);
+}
+.price {
+    position: absolute;
+    width: calc(93px / 3 * 4);
+    height: calc(26px / 3 * 4);
+
+    top: calc(350px / 3 * 4);
+    left: calc(24px / 3 * 4);
+}
+.grown {
+    position: absolute;
+    width: calc(280px / 3 * 4);
+    height: calc(24px / 3 * 4);
+
+    top: calc(392px / 3 * 4);
+    left: calc(24px / 3 * 4);
+}
+.minus {
+    position: absolute;
+    
+}
+.plus {
+    position: absolute;
 
 }
+.frame {
+    position: absolute;
+
+}
+
+
+[id="name_1"] {
+    left: calc(24px / 3 * 4);
+    top: calc(320px / 3 * 4);
+}
+[id="name_2"] {
+    left: calc(34px / 3 * 4);
+    top: calc(320px / 3 * 4);
+}
+[id="name_3"] {
+    left: calc(44px / 3 * 4);
+    top: calc(320px / 3 * 4);
+}
+
+[id="price_1"] {
+    left: calc(24px / 3 * 4);
+    top: calc(320px / 3 * 4);
+}
+[id="price_2"] {
+    left: calc(34px / 3 * 4);
+    top: calc(330px / 3 * 4);
+}
+[id="price_3"] {
+    left: calc(44px / 3 * 4);
+    top: calc(340px / 3 * 4);
+}
+
+[id="grown_1"] {
+    left: calc(24px / 3 * 4);
+    top: calc(360px / 3 * 4);
+}
+[id="grown_2"] {
+    left: calc(34px / 3 * 4);
+    top: calc(370px / 3 * 4);
+}
+[id="grown_3"] {
+    left: calc(44px / 3 * 4);
+    top: calc(380px / 3 * 4);
+}
+
+
+
+
+
+
+/* [id="heirloomTomatoName_1"] {
+    left: calc(24px / 3 * 4);
+    top: calc(320px / 3 * 4);
+}
+[id="heirloomTomatoName_2"] {
+    left: calc(34px / 3 * 4);
+    top: calc(320px / 3 * 4);
+}
+[id="heirloomTomatoName_3"] {
+    left: calc(44px / 3 * 4);
+    top: calc(320px / 3 * 4);
+}
+
+[id="price_1"] {
+    left: calc(24px / 3 * 4);
+    top: calc(320px / 3 * 4);
+}
+[id="price_2"] {
+    left: calc(34px / 3 * 4);
+    top: calc(330px / 3 * 4);
+}
+[id="price_3"] {
+    left: calc(44px / 3 * 4);
+    top: calc(340px / 3 * 4);
+}
+
+[id="grown_1"] {
+    left: calc(24px / 3 * 4);
+    top: calc(360px / 3 * 4);
+}
+[id="grown_2"] {
+    left: calc(34px / 3 * 4);
+    top: calc(370px / 3 * 4);
+}
+[id="grown_3"] {
+    left: calc(44px / 3 * 4);
+    top: calc(380px / 3 * 4);
+} */
