@@ -25,9 +25,18 @@ public class ShopController {
 
 
 
+
         model.addAttribute("basketCount", BasketCounter.getProductsCount());
         model.addAttribute("data", Today.getFormattedDate());
         model.addAttribute("sortType", sortType);
         return "shop";
     }
+
+//    @PostMapping("/add")
+//    @ResponseBody
+//    public String createPaste(@RequestParam("pasteInput") String pasteInput) { //button function
+//        String uniCode = symbolGenerator();
+//        if (pasteInput.isEmpty() || pasteInput.trim().isEmpty()) return "Пожалуйста, введите ваш текст.";
+//        return uniCode;
+//    }
 }
