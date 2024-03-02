@@ -6,7 +6,9 @@ public class BasketCounter {
     public static int getProductsCount() {
         return productsCount;
     }
-
+    public static void decreaseProductsCount() {
+        productsCount--;
+    }
     public static void addProductsCount() {
         productsCount++;
     }
