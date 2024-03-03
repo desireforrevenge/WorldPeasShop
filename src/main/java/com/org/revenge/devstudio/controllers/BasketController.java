@@ -11,7 +11,7 @@ public class BasketController {
     public String basket(Model model) {
         model.addAttribute("title", "Мир");
 
-        model.addAttribute("basketCount", BasketCounter.getProductsCount());
+        model.addAttribute("basketCount", 1);
 
         return "basket";
     }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("basketCount", BasketCounter.getProductsCount());
+        model.addAttribute("basketCount", 1);
 
         return "home";
     }
