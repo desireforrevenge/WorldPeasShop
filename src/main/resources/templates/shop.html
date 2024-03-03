@@ -15,7 +15,7 @@
             <a href="news.html" th:href="@{/news}" class="newsButton">Newstand</a>
             <a href="about.html" th:href="@{/about}" class="aboutButton">Who we are</a>
             <a href="profile.html" th:href="@{/profile}" class="profileButton">My profile</a>
-            <a href="basket.html" th:href="@{/basket}" class="basketButton">Basket (<span th:text="${basketCount}"></span>)</a>
+            <a href="basket.html" th:href="@{/basket}" class="basketButton">Basket (<span id="basketCount">0</span>)</a>
         </nav>
     </header>
     <main>
@@ -35,10 +35,18 @@
                     <div id="grown_1" class="grown heirloomTomatoGrown">Grown in San Juan Capistrano, CA</div>
                     <div id="picture_1" class="picture heirloomTomatoPicture" style="background-image: url('https://imgc.artprintimages.com/img/print/mitch-diamond-tomatoes-on-vine_u-l-pxz7un0.jpg?background=f3f3f3');"></div>
                     <div class="minus" style="left: calc(290px / 3 * 4); top: calc(340px / 3 * 4);"></div>
-                    <div id="minus_1" class="reduce heirloomTomatoMinus" onclick="removeProduct(this);"></div>
+
+                    <form action="/remove" method="post" class="heirloomTomatoMinusForm">
+                        <button type="button" id="minus_1" class="reduce heirloomTomatoMinus" onclick="removeProduct(this);"></button>
+                    </form>
+
                     <div class="minus" style="left: calc(358px / 3 * 4); top: calc(340px / 3 * 4);"></div>
                     <div class="minus" style="left: calc(358px / 3 * 4); top: calc(340px / 3 * 4); transform: rotate(-90deg);"></div>
-                    <div id="plus_1" class="reduce heirloomTomatoPlus" onclick="addProduct(this); "></div>
+
+                    <form th:action="@{/addHeirloomTomato}" method="post" class="heirloomTomatoPlusForm">
+                        <button type="button" id="plus_1" class="reduce heirloomTomatoPlus" onclick="addProduct(this); "></button>
+                    </form>
+
                     <div class="frame" style="left: calc(319px / 3 * 4); top: calc(328px / 3 * 4);"></div>
                     <div id="number_1" class="number heirloomTomatoNumber">0</div>
                     <!-- это НЕ ДОЧЕРНИЕ теги!!! -->
@@ -46,12 +54,16 @@
                     <div id="name_2" class="name sweetOnionName">Sweet onion</div>
                     <div id="price_2" class="price sweetOnionPrice">$2.99 / lb</div>
                     <div id="grown_2" class="grown sweetOnionGrown">Grown in Yosemite National Park, CA</div>
-                    <div id="picture_2" class="picture sweetOnionPicture" style="background-image: url('https://www.localguidesconnect.com/t5/image/serverpage/image-id/1459713i630E85CDBE00D075/image-size/medium?v=v2&px=400');"></div>                    
+                    <div id="picture_2" class="picture sweetOnionPicture" style="background-image: url('https://www.localguidesconnect.com/t5/image/serverpage/image-id/1459713i630E85CDBE00D075/image-size/medium?v=v2&px=400');"></div>
                     <div class="minus" style="left: calc(717px / 3 * 4); top: calc(340px / 3 * 4);"></div>
-                    <div id="minus_2" class="reduce sweetOnionMinus" onclick="removeProduct(this)"></div>
+                    <form action="" class="sweetOnionMinusForm">
+                        <div id="minus_2" class="reduce sweetOnionMinus" onclick="removeProduct(this)"></div>
+                    </form>
                     <div class="minus" style="left: calc(785px / 3 * 4); top: calc(340px / 3 * 4);"></div>
                     <div class="minus" style="left: calc(785px / 3 * 4); top: calc(340px / 3 * 4); transform: rotate(-90deg);"></div>
-                    <div id="plus_2" class="reduce sweetOnionPlus" onclick="addProduct(this)"></div>
+                    <form action="" class="sweetOnionPlusForm">
+                        <div id="plus_2" class="reduce sweetOnionPlus" onclick="addProduct(this)"></div>
+                    </form>
                     <div class="frame" style="left: calc(746px / 3 * 4); top: calc(328px / 3 * 4);"></div>
                     <div id="number_2" class="number sweetOnionNumber">0</div>
                      <!-- это НЕ ДОЧЕРНИЕ теги!!! -->
@@ -61,10 +73,14 @@
                     <div id="grown_3" class="grown organicGingerGrown">Grown in Huntington Beach, CA</div>
                     <div id="picture_3" class="picture organicGingerPicture" style="background-image: url('https://farzana.ae/images/thumbs/0007672_organic-ginger.jpeg');"></div>
                     <div class="minus" style="left: calc(1144px / 3 * 4); top: calc(340px / 3 * 4);"></div>
-                    <div id="minus_3" class="reduce organicGingerMinus" onclick="removeProduct(this)"></div>
+                    <form action="" class="organicGingerMinusForm">
+                        <div id="minus_3" class="reduce organicGingerMinus" onclick="removeProduct(this)"></div>
+                    </form>
                     <div class="minus" style="left: calc(1212px / 3 * 4); top: calc(340px / 3 * 4);"></div>
                     <div class="minus" style="left: calc(1212px / 3 * 4); top: calc(340px / 3 * 4); transform: rotate(-90deg);"></div>
-                    <div id="plus_3" class="reduce organicGingerPlus" onclick="addProduct(this)"></div>
+                    <form action="" class="organicGingerPlusForm">
+                        <div id="plus_3" class="reduce organicGingerPlus" onclick="addProduct(this)"></div>
+                    </form>
                     <div class="frame" style="left: calc(1173px / 3 * 4); top: calc(328px / 3 * 4);"></div>
                     <div id="number_3" class="number organicGingerNumber">0</div>
                      <!-- это НЕ ДОЧЕРНИЕ теги!!! -->
@@ -72,10 +88,6 @@
         </div>
     </main>
     <script th:inline="javascript">
-
-
-
-
         function addProduct(div) {
             let str = div.id;
             let last = str.length - 1;
@@ -83,8 +95,11 @@
             let help = 'number_' + str[last];
             let currentValue = parseInt(document.getElementById(help).textContent);
 
+            document.getElementById('basketCount').textContent = String(parseInt(document.getElementById('basketCount').textContent) + 1);
+            
             document.getElementById(help).textContent = String(currentValue + 1);
         }
+
         function removeProduct(div) {
             let str = div.id;
             let last = str.length - 1;
@@ -92,11 +107,12 @@
             let help = 'number_' + str[last];
             let currentValue = parseInt(document.getElementById(help).textContent);
 
+            document.getElementById('basketCount').textContent = String(parseInt(document.getElementById('basketCount').textContent) - 1);
+
             if (currentValue > 0) {
                 document.getElementById(help).textContent = String(currentValue - 1);
             }
         }
-
 
         function sortByName() {
             var productList = document.getElementById('productList');
@@ -120,7 +136,7 @@
                 
                 document.getElementById('productList').appendChild(element);
             }
-            
+        
             for (var index = 0; index < elementsWithClass.length; index++) {
                 if (elementsWithClass[index].getAttribute('data-name') === 'h') {
                     document.querySelector('.heirloomTomatoName').id = 'name_' + (index + 1);
@@ -132,14 +148,14 @@
                     document.querySelector('.heirloomTomatoPicture').id = 'picture_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPicture'));
 
-                    document.querySelector('.heirloomTomatoMinus').id = 'minus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinus'));
-                    document.querySelector('.heirloomTomatoPlus').id = 'plus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlus'));
+                    document.querySelector('.heirloomTomatoMinusForm').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinusForm'));
+
+                    document.querySelector('.heirloomTomatoPlusForm').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlusForm'));
+
                     document.querySelector('.heirloomTomatoNumber').id = 'number_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoNumber'));
-
-                    // TODO number, reduces
                 } else if (elementsWithClass[index].getAttribute('data-name') === 's') {
                     document.querySelector('.sweetOnionName').id = 'name_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.sweetOnionName'));
@@ -150,13 +166,14 @@
                     document.querySelector('.sweetOnionPicture').id = 'picture_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPicture'));
 
-                    document.querySelector('.sweetOnionMinus').id = 'minus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinus'));
-                    document.querySelector('.sweetOnionPlus').id = 'plus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlus'));
+                    document.querySelector('.sweetOnionMinusForm').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinusForm'));
+
+                    document.querySelector('.sweetOnionPlusForm').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlusForm'));
+
                     document.querySelector('.sweetOnionNumber').id = 'number_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.sweetOnionNumber'));
-
                 } else if (elementsWithClass[index].getAttribute('data-name') === 'o') {
                     document.querySelector('.organicGingerName').id = 'name_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.organicGingerName'));
@@ -167,10 +184,12 @@
                     document.querySelector('.organicGingerPicture').id = 'picture_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.organicGingerPicture'));
 
-                    document.querySelector('.organicGingerMinus').id = 'minus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinus'));
-                    document.querySelector('.organicGingerPlus').id = 'plus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlus'));
+                    document.querySelector('.organicGingerMinusForm').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinusForm'));
+
+                    document.querySelector('.organicGingerPlusForm').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlusForm'));
+
                     document.querySelector('.organicGingerNumber').id = 'number_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.organicGingerNumber'));
                 }
@@ -211,14 +230,14 @@
                     document.querySelector('.heirloomTomatoPicture').id = 'picture_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPicture'));
 
-                    document.querySelector('.heirloomTomatoMinus').id = 'minus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinus'));
-                    document.querySelector('.heirloomTomatoPlus').id = 'plus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlus'));
+                    document.querySelector('.heirloomTomatoMinusForm').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinusForm'));
+
+                    document.querySelector('.heirloomTomatoPlusForm').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlusForm'));
+
                     document.querySelector('.heirloomTomatoNumber').id = 'number_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoNumber'));
-
-                    // TODO number, reduces
                 } else if (elementsWithClass[index].getAttribute('data-name') === 's') {
                     document.querySelector('.sweetOnionName').id = 'name_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.sweetOnionName'));
@@ -229,13 +248,14 @@
                     document.querySelector('.sweetOnionPicture').id = 'picture_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPicture'));
 
-                    document.querySelector('.sweetOnionMinus').id = 'minus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinus'));
-                    document.querySelector('.sweetOnionPlus').id = 'plus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlus'));
+                    document.querySelector('.sweetOnionMinusForm').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinusForm'));
+
+                    document.querySelector('.sweetOnionPlusForm').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlusForm'));
+
                     document.querySelector('.sweetOnionNumber').id = 'number_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.sweetOnionNumber'));
-
                 } else if (elementsWithClass[index].getAttribute('data-name') === 'o') {
                     document.querySelector('.organicGingerName').id = 'name_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.organicGingerName'));
@@ -246,10 +266,12 @@
                     document.querySelector('.organicGingerPicture').id = 'picture_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.organicGingerPicture'));
 
-                    document.querySelector('.organicGingerMinus').id = 'minus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinus'));
-                    document.querySelector('.organicGingerPlus').id = 'plus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlus'));
+                    document.querySelector('.organicGingerMinusForm').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinusForm'));
+
+                    document.querySelector('.organicGingerPlusForm').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlusForm'));
+
                     document.querySelector('.organicGingerNumber').id = 'number_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.organicGingerNumber'));
                 }
@@ -289,14 +311,14 @@
                     document.querySelector('.heirloomTomatoPicture').id = 'picture_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPicture'));
 
-                    document.querySelector('.heirloomTomatoMinus').id = 'minus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinus'));
-                    document.querySelector('.heirloomTomatoPlus').id = 'plus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlus'));
+                    document.querySelector('.heirloomTomatoMinusForm').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinusForm'));
+
+                    document.querySelector('.heirloomTomatoPlusForm').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlusForm'));
+
                     document.querySelector('.heirloomTomatoNumber').id = 'number_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoNumber'));
-
-                    // TODO number, reduces
                 } else if (elementsWithClass[index].getAttribute('data-name') === 's') {
                     document.querySelector('.sweetOnionName').id = 'name_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.sweetOnionName'));
@@ -307,13 +329,15 @@
                     document.querySelector('.sweetOnionPicture').id = 'picture_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPicture'));
 
-                    document.querySelector('.sweetOnionMinus').id = 'minus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinus'));
-                    document.querySelector('.sweetOnionPlus').id = 'plus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlus'));
+                    document.querySelector('.sweetOnionMinusForm').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinusForm'));
+
+                    document.querySelector('.sweetOnionPlusForm').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlusForm'));
+
+
                     document.querySelector('.sweetOnionNumber').id = 'number_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.sweetOnionNumber'));
-
                 } else if (elementsWithClass[index].getAttribute('data-name') === 'o') {
                     document.querySelector('.organicGingerName').id = 'name_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.organicGingerName'));
@@ -324,10 +348,12 @@
                     document.querySelector('.organicGingerPicture').id = 'picture_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.organicGingerPicture'));
 
-                    document.querySelector('.organicGingerMinus').id = 'minus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinus'));
-                    document.querySelector('.organicGingerPlus').id = 'plus_' + (index + 1);
-                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlus'));
+                    document.querySelector('.organicGingerMinusForm').id = 'minus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinusForm'));
+
+                    document.querySelector('.organicGingerPlusForm').id = 'plus_' + (index + 1);
+                    document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlusForm'));
+
                     document.querySelector('.organicGingerNumber').id = 'number_' + (index + 1);
                     document.getElementById('productList').appendChild(document.querySelector('.organicGingerNumber'));
                 }
@@ -347,6 +373,7 @@
                     buttons[i].style.color = 'black';
                     buttons[i].style.backgroundColor = 'white';
                     buttons[i].style.border = '1px solid rgb(194, 194, 194)';
+                    buttons[i].classList.remove('active');
                 }
             }
         }
@@ -356,6 +383,8 @@
             button.style.color = 'white';
             button.style.backgroundColor = '#426B1F';
             button.style.border = '0';
+
+            button.classList.add('active');
         }
     </script>
 </body>
