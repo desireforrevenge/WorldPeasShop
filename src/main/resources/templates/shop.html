@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{shop.css}">
+    <link rel="stylesheet" th:href="@{css/shop.css}">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script th:src="@{js/shop.js}" defer="defer"></script>
     <title>World Peas | Shop</title>
 </head>
 <body>
@@ -33,7 +34,7 @@
                     <div id="name_1" class="name heirloomTomatoName">Heirloom tomato</div>
                     <div id="price_1" class="price heirloomTomatoPrice">$5.99 / lb</div>
                     <div id="grown_1" class="grown heirloomTomatoGrown">Grown in San Juan Capistrano, CA</div>
-                    <div id="picture_1" class="picture heirloomTomatoPicture" style="background-image: url('https://imgc.artprintimages.com/img/print/mitch-diamond-tomatoes-on-vine_u-l-pxz7un0.jpg?background=f3f3f3');"></div>
+                    <img id="picture_1" class="picture heirloomTomatoPicture" src="https://imgc.artprintimages.com/img/print/mitch-diamond-tomatoes-on-vine_u-l-pxz7un0.jpg?background=f3f3f3" alt="">
                     <div class="minus" style="left: calc(290px / 3 * 4); top: calc(340px / 3 * 4);"></div>
 
                     <form action="/remove" method="post" class="heirloomTomatoMinusForm">
@@ -54,7 +55,7 @@
                     <div id="name_2" class="name sweetOnionName">Sweet onion</div>
                     <div id="price_2" class="price sweetOnionPrice">$2.99 / lb</div>
                     <div id="grown_2" class="grown sweetOnionGrown">Grown in Yosemite National Park, CA</div>
-                    <div id="picture_2" class="picture sweetOnionPicture" style="background-image: url('https://www.localguidesconnect.com/t5/image/serverpage/image-id/1459713i630E85CDBE00D075/image-size/medium?v=v2&px=400');"></div>
+                    <img id="picture_2" class="picture sweetOnionPicture" src="https://www.localguidesconnect.com/t5/image/serverpage/image-id/1459713i630E85CDBE00D075/image-size/medium?v=v2&px=400" alt="">
                     <div class="minus" style="left: calc(717px / 3 * 4); top: calc(340px / 3 * 4);"></div>
                     <form action="" class="sweetOnionMinusForm">
                         <div id="minus_2" class="reduce sweetOnionMinus" onclick="removeProduct(this)"></div>
@@ -71,7 +72,7 @@
                     <div id="name_3" class="name organicGingerName">Organic ginger</div>
                     <div id="price_3" class="price organicGingerPrice">$12.99 / lb</div>
                     <div id="grown_3" class="grown organicGingerGrown">Grown in Huntington Beach, CA</div>
-                    <div id="picture_3" class="picture organicGingerPicture" style="background-image: url('https://farzana.ae/images/thumbs/0007672_organic-ginger.jpeg');"></div>
+                    <img id="picture_3" class="picture organicGingerPicture" src="https://farzana.ae/images/thumbs/0007672_organic-ginger.jpeg" alt="">
                     <div class="minus" style="left: calc(1144px / 3 * 4); top: calc(340px / 3 * 4);"></div>
                     <form action="" class="organicGingerMinusForm">
                         <div id="minus_3" class="reduce organicGingerMinus" onclick="removeProduct(this)"></div>
@@ -87,7 +88,7 @@
             </div>
         </div>
     </main>
-    <script th:inline="javascript">
+    <!-- <script th:inline="javascript">
         function addProduct(div) {
             let str = div.id;
             let last = str.length - 1;
@@ -386,6 +387,6 @@
 
             button.classList.add('active');
         }
-    </script>
+    </script> -->
 </body>
 </html>
