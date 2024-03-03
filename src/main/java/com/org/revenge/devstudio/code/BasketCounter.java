@@ -1,15 +1,23 @@
 package com.org.revenge.devstudio.code;
 
-public class BasketCounter {
-    private static int productsCount = 3;
+import jakarta.servlet.http.HttpSession;
 
-    public static int getProductsCount() {
-        return productsCount;
+public class BasketCounter {
+    public static int getBasketCount(HttpSession session) {
+        Integer basketCount = (Integer) session.getAttribute("basketCount");
+        return (basketCount != null) ? basketCount : 123;
     }
-    public static void decreaseProductsCount() {
-        productsCount--;
+
+    public static void setBasketCount(HttpSession session, int basketCount) {
+        session.setAttribute("basketCount", basketCount);
     }
-    public static void addProductsCount() {
-        productsCount++;
+
+    public static int getHeirloomTomatoCounter(HttpSession session) {
+        Integer heirloomTomatoCounter = (Integer) session.getAttribute("heirloomTomatoCounter");
+        return (heirloomTomatoCounter != null) ? heirloomTomatoCounter : 0;
+    }
+
+    public static void setHeirloomTomatoCounter(HttpSession session, int heirloomTomatoCounter) {
+        session.setAttribute("heirloomTomatoCounter", heirloomTomatoCounter);
     }
 }
