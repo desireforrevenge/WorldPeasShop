@@ -188,6 +188,7 @@ header {
 .basketButton:hover {
     filter: brightness(0.8);
 }
+
 .sortHeader {
     position: relative;
     height: calc(149px / 3 * 4);
@@ -220,8 +221,8 @@ header {
 }
 .todayLocate {
     position: absolute;
-    top: calc(96px / 3 * 4);
-    left: calc(322px / 3 * 4);
+    top: calc(93px / 3 * 4);
+    left: calc(315px / 3 * 4);
 }
 .boldFresh {
     font-family: "Inter", sans-serif;
@@ -546,4 +547,7 @@ header {
 [id="plus_3"] {
     left: calc(1207px / 3 * 4);
     top: calc(328px / 3 * 4);
+}
+[id="inputTag"] {
+    display: none;
 }
