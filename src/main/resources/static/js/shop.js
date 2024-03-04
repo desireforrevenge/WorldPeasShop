@@ -1,9 +1,41 @@
+var heirloomTomatoCount = 0;
+var sweetOnionCount = 0;
+var organicGingerCount = 0;
+var sumElementsInBasket = 0;
+
+
+
+function changeFormVariable() {
+    var form = document.getElementById('basketForm');
+
+    form.elements['heirloomTomatoCount'].value = heirloomTomatoCount;
+    form.elements['sweetOnionCount'].value = sweetOnionCount;
+    form.elements['organicGingerCount'].value = organicGingerCount;
+    form.elements['sumElementsInBasket'].value = sumElementsInBasket;
+}
+
+document.getElementById('basketButton').addEventListener('click', function() {
+    document.getElementById('basketForm').submit();
+    window.location.href = this.href;
+});
+
 function addProduct(div) {
     let str = div.id;
     let last = str.length - 1;
 
     let help = 'number_' + str[last];
     let currentValue = parseInt(document.getElementById(help).textContent);
+
+    if (str[last] === '1') { 
+        heirloomTomatoCount++;
+        sumElementsInBasket++;
+    } else if (str[last] === '2') {
+        sweetOnionCount++;
+        sumElementsInBasket++;
+    } else if (str[last] === '3') {
+        organicGingerCount++;
+        sumElementsInBasket++;
+    }
 
     document.getElementById('basketCount').textContent = String(parseInt(document.getElementById('basketCount').textContent) + 1);
     
@@ -16,6 +48,17 @@ function removeProduct(div) {
 
     let help = 'number_' + str[last];
     let currentValue = parseInt(document.getElementById(help).textContent);
+
+    if (str[last] === '1') { 
+        heirloomTomatoCount--;
+        sumElementsInBasket--;
+    } else if (str[last] === '2') {
+        sweetOnionCount--;
+        sumElementsInBasket--;
+    } else if (str[last] === '3') {
+        organicGingerCount--;
+        sumElementsInBasket--;
+    }
 
     if (parseInt(document.getElementById('basketCount').textContent) > 0) {
         document.getElementById('basketCount').textContent = String(parseInt(document.getElementById('basketCount').textContent) - 1);
@@ -59,11 +102,11 @@ function sortByName() {
             document.querySelector('.heirloomTomatoPicture').id = 'picture_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPicture'));
 
-            document.querySelector('.heirloomTomatoMinusForm').id = 'minus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinusForm'));
+            document.querySelector('.heirloomTomatoMinus').id = 'minus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinus'));
 
-            document.querySelector('.heirloomTomatoPlusForm').id = 'plus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlusForm'));
+            document.querySelector('.heirloomTomatoPlus').id = 'plus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlus'));
 
             document.querySelector('.heirloomTomatoNumber').id = 'number_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoNumber'));
@@ -77,11 +120,11 @@ function sortByName() {
             document.querySelector('.sweetOnionPicture').id = 'picture_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPicture'));
 
-            document.querySelector('.sweetOnionMinusForm').id = 'minus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinusForm'));
+            document.querySelector('.sweetOnionMinus').id = 'minus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinus'));
 
-            document.querySelector('.sweetOnionPlusForm').id = 'plus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlusForm'));
+            document.querySelector('.sweetOnionPlus').id = 'plus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlus'));
 
             document.querySelector('.sweetOnionNumber').id = 'number_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.sweetOnionNumber'));
@@ -95,11 +138,11 @@ function sortByName() {
             document.querySelector('.organicGingerPicture').id = 'picture_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.organicGingerPicture'));
 
-            document.querySelector('.organicGingerMinusForm').id = 'minus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinusForm'));
+            document.querySelector('.organicGingerMinus').id = 'minus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinus'));
 
-            document.querySelector('.organicGingerPlusForm').id = 'plus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlusForm'));
+            document.querySelector('.organicGingerPlus').id = 'plus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlus'));
 
             document.querySelector('.organicGingerNumber').id = 'number_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.organicGingerNumber'));
@@ -141,11 +184,11 @@ function sortByPrice() {
             document.querySelector('.heirloomTomatoPicture').id = 'picture_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPicture'));
 
-            document.querySelector('.heirloomTomatoMinusForm').id = 'minus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinusForm'));
+            document.querySelector('.heirloomTomatoMinus').id = 'minus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinus'));
 
-            document.querySelector('.heirloomTomatoPlusForm').id = 'plus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlusForm'));
+            document.querySelector('.heirloomTomatoPlus').id = 'plus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlus'));
 
             document.querySelector('.heirloomTomatoNumber').id = 'number_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoNumber'));
@@ -159,11 +202,11 @@ function sortByPrice() {
             document.querySelector('.sweetOnionPicture').id = 'picture_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPicture'));
 
-            document.querySelector('.sweetOnionMinusForm').id = 'minus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinusForm'));
+            document.querySelector('.sweetOnionMinus').id = 'minus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinus'));
 
-            document.querySelector('.sweetOnionPlusForm').id = 'plus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlusForm'));
+            document.querySelector('.sweetOnionPlus').id = 'plus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlus'));
 
             document.querySelector('.sweetOnionNumber').id = 'number_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.sweetOnionNumber'));
@@ -177,11 +220,11 @@ function sortByPrice() {
             document.querySelector('.organicGingerPicture').id = 'picture_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.organicGingerPicture'));
 
-            document.querySelector('.organicGingerMinusForm').id = 'minus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinusForm'));
+            document.querySelector('.organicGingerMinus').id = 'minus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinus'));
 
-            document.querySelector('.organicGingerPlusForm').id = 'plus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlusForm'));
+            document.querySelector('.organicGingerPlus').id = 'plus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlus'));
 
             document.querySelector('.organicGingerNumber').id = 'number_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.organicGingerNumber'));
@@ -222,11 +265,11 @@ function sortByPrice() {
             document.querySelector('.heirloomTomatoPicture').id = 'picture_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPicture'));
 
-            document.querySelector('.heirloomTomatoMinusForm').id = 'minus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinusForm'));
+            document.querySelector('.heirloomTomatoMinus').id = 'minus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoMinus'));
 
-            document.querySelector('.heirloomTomatoPlusForm').id = 'plus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlusForm'));
+            document.querySelector('.heirloomTomatoPlus').id = 'plus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoPlus'));
 
             document.querySelector('.heirloomTomatoNumber').id = 'number_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.heirloomTomatoNumber'));
@@ -240,11 +283,11 @@ function sortByPrice() {
             document.querySelector('.sweetOnionPicture').id = 'picture_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPicture'));
 
-            document.querySelector('.sweetOnionMinusForm').id = 'minus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinusForm'));
+            document.querySelector('.sweetOnionMinus').id = 'minus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionMinus'));
 
-            document.querySelector('.sweetOnionPlusForm').id = 'plus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlusForm'));
+            document.querySelector('.sweetOnionPlus').id = 'plus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.sweetOnionPlus'));
 
 
             document.querySelector('.sweetOnionNumber').id = 'number_' + (index + 1);
@@ -259,11 +302,11 @@ function sortByPrice() {
             document.querySelector('.organicGingerPicture').id = 'picture_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.organicGingerPicture'));
 
-            document.querySelector('.organicGingerMinusForm').id = 'minus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinusForm'));
+            document.querySelector('.organicGingerMinus').id = 'minus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.organicGingerMinus'));
 
-            document.querySelector('.organicGingerPlusForm').id = 'plus_' + (index + 1);
-            document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlusForm'));
+            document.querySelector('.organicGingerPlus').id = 'plus_' + (index + 1);
+            document.getElementById('productList').appendChild(document.querySelector('.organicGingerPlus'));
 
             document.querySelector('.organicGingerNumber').id = 'number_' + (index + 1);
             document.getElementById('productList').appendChild(document.querySelector('.organicGingerNumber'));
