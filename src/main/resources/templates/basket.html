@@ -5,13 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{css/basket.css}">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script th:src="@{js/basket.js}" defer="defer"></script>
     <title>World Peas | Basket</title>
 </head>
 <body>
-    <body>
-        <div class="container">
-            <p>прив я карзина</p>
+    <nav class="nav">
+        <a href="home.html" th:href="@{/}" class="homeButton">World Peas</a>
+        <a href="shop.html" th:href="@{/shop}" class="shopButton">Shop</a>
+        <a href="news.html" th:href="@{/news}" class="newsButton">Newstand</a>
+        <a href="about.html" th:href="@{/about}" class="aboutButton">Who we are</a>
+        <a href="profile.html" th:href="@{/profile}" class="profileButton">My profile</a>
+        <a href="basket.html" th:href="@{/basket}" class="basketButton">Basket (<span th:text="${basketCount}"></span>)</a>
+    </nav>
+    <div class="basketHeader">
+        <h1 class="caption">Basket</h1>
+        <p class="itemsTypeCount"><span th:text="${typesProducts}"></span>&nbsp;items</p>
+        <hr class="divider">
+    </div>
+    <div class="productList">
+        <div class="product product_1">
+            <img src="https://imgc.artprintimages.com/img/print/mitch-diamond-tomatoes-on-vine_u-l-pxz7un0.jpg?background=f3f3f3" alt="" class="productPicture">
+            <p class="productName">Heirloom tomato</p>
+            <p class="productLbPrice">$5.99 / lb</p>
+            <p class="totalPrice" th:text="${totalPrice1}"></p>
+            <div class="inputLbField" onclick="writeLbs(this);">
+                <div class="text"><span id="text1">1</span>&nbsp;lb</div>
+                <div class="icon">
+                    <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
+                </div>
+            </div>
         </div>
-    </body>
+        <div class="product product_2">
+            <img src="https://www.localguidesconnect.com/t5/image/serverpage/image-id/1459713i630E85CDBE00D075/image-size/medium?v=v2&px=400" alt="" class="productPicture">
+            <p class="productName">Sweet onion</p>
+            <p class="productLbPrice">$2.99 / lb</p>
+            <p class="totalPrice" th:text="${totalPrice2}"></p>
+            <div class="inputLbField">
+                <p class="text"><span id="text2">5</span>&nbsp;lb</p>
+                <div class="icon">
+                    <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
+                </div>
+            </div>
+        </div>
+        <div class="product product_3">
+            <img src="https://farzana.ae/images/thumbs/0007672_organic-ginger.jpeg" alt="" class="productPicture">
+            <p class="productName">Organic ginger</p>
+            <p class="productLbPrice">$12.99 / lb</p>
+            <p class="totalPrice" th:text="${totalPrice3}"></p>
+            <div class="inputLbField">
+                <p class="text"><span id="text3">0.5</span>&nbsp;lb</p>
+                <div class="icon">
+                    <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="orderSummary">
+
+    </div>
 </body>
 </html>
