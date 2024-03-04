@@ -3,21 +3,40 @@ package com.org.revenge.devstudio.code;
 import jakarta.servlet.http.HttpSession;
 
 public class BasketCounter {
-    public static int getBasketCount(HttpSession session) {
-        Integer basketCount = (Integer) session.getAttribute("basketCount");
-        return (basketCount != null) ? basketCount : 123;
+    private String heirloomTomatoCount;
+    private String sweetOnionCount;
+    private String organicGingerCount;
+    private String sumElementsInBasket;
+
+    public String getSumElementsInBasket() {
+        return sumElementsInBasket;
     }
 
-    public static void setBasketCount(HttpSession session, int basketCount) {
-        session.setAttribute("basketCount", basketCount);
+    public void setSumElementsInBasket(String sumElementsInBasket) {
+        this.sumElementsInBasket = sumElementsInBasket;
     }
 
-    public static int getHeirloomTomatoCounter(HttpSession session) {
-        Integer heirloomTomatoCounter = (Integer) session.getAttribute("heirloomTomatoCounter");
-        return (heirloomTomatoCounter != null) ? heirloomTomatoCounter : 0;
+    public String getHeirloomTomatoCount() {
+        return heirloomTomatoCount;
     }
 
-    public static void setHeirloomTomatoCounter(HttpSession session, int heirloomTomatoCounter) {
-        session.setAttribute("heirloomTomatoCounter", heirloomTomatoCounter);
+    public void setHeirloomTomatoCount(String heirloomTomatoCount) {
+        this.heirloomTomatoCount = heirloomTomatoCount;
+    }
+
+    public String getSweetOnionCount() {
+        return sweetOnionCount;
+    }
+
+    public void setSweetOnionCount(String sweetOnionCount) {
+        this.sweetOnionCount = sweetOnionCount;
+    }
+
+    public String getOrganicGingerCount() {
+        return organicGingerCount;
+    }
+
+    public void setOrganicGingerCount(String organicGingerCount) {
+        this.organicGingerCount = organicGingerCount;
     }
 }
