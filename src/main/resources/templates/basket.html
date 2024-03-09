@@ -15,7 +15,7 @@
         <a href="news.html" th:href="@{/news}" class="newsButton">Newstand</a>
         <a href="about.html" th:href="@{/about}" class="aboutButton">Who we are</a>
         <a href="profile.html" th:href="@{/profile}" class="profileButton">My profile</a>
-        <a href="basket.html" th:href="@{/basket}" class="basketButton">Basket (<span th:text="${basketCount}"></span>)</a>
+        <a href="basket.html" th:href="@{/basket}" class="basketButton">Basket (<span th:text="${sumElementsInBasket}"></span>)</a>
     </nav>
     <div class="basketHeader">
         <h1 class="caption">Basket</h1>
@@ -26,37 +26,37 @@
         <div class="product product_1">
             <img src="https://imgc.artprintimages.com/img/print/mitch-diamond-tomatoes-on-vine_u-l-pxz7un0.jpg?background=f3f3f3" alt="" class="productPicture">
             <p class="productName">Heirloom tomato</p>
-            <p class="productLbPrice">$5.99 / lb</p>
+            <p class="productLbPrice">$<span th:text="${priceHeirloomTomato}"></span>&nbsp;/&nbsp;lb</p>
             <p class="totalPrice" th:text="${totalPrice1}"></p>
-            <div class="inputLbField" onclick="writeLbs(this);">
-                <div class="text"><span id="text1">1</span>&nbsp;lb</div>
-                <div class="icon">
+            <div class="inputLbField">
+                <div class="text"><span id="text1" th:text="${heirloomTomatoCount}"></span>&nbsp;lb</div>
+                <button class="icon" onclick="writeLbs(this);">
                     <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
-                </div>
+                </button>
             </div>
         </div>
         <div class="product product_2">
             <img src="https://www.localguidesconnect.com/t5/image/serverpage/image-id/1459713i630E85CDBE00D075/image-size/medium?v=v2&px=400" alt="" class="productPicture">
             <p class="productName">Sweet onion</p>
-            <p class="productLbPrice">$2.99 / lb</p>
+            <p class="productLbPrice">$<span th:text="${priceSweetOnion}"></span>&nbsp;/&nbsp;lb</p>
             <p class="totalPrice" th:text="${totalPrice2}"></p>
             <div class="inputLbField">
-                <p class="text"><span id="text2">5</span>&nbsp;lb</p>
-                <div class="icon">
+                <p class="text"><span id="text2" th:text="${sweetOnionCount}"></span>&nbsp;lb</p>
+                <button class="icon" onclick="writeLbs(this);">
                     <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
-                </div>
+                </button>
             </div>
         </div>
         <div class="product product_3">
             <img src="https://farzana.ae/images/thumbs/0007672_organic-ginger.jpeg" alt="" class="productPicture">
             <p class="productName">Organic ginger</p>
-            <p class="productLbPrice">$12.99 / lb</p>
+            <p class="productLbPrice">$<span th:text="${priceOrganicGinger}"></span>&nbsp;/&nbsp;lb</p>
             <p class="totalPrice" th:text="${totalPrice3}"></p>
             <div class="inputLbField">
-                <p class="text"><span id="text3">0.5</span>&nbsp;lb</p>
-                <div class="icon">
+                <p class="text"><span id="text3" th:text="${organicGingerCount}"></span>&nbsp;lb</p>
+                <button class="icon" onclick="writeLbs(this);">
                     <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
-                </div>
+                </button>
             </div>
         </div>
     </div>
