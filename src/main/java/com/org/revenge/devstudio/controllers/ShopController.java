@@ -6,16 +6,23 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import static com.org.revenge.devstudio.code.BasketCounter.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ShopController {
-    public static int zxc = 1;
     @GetMapping("/shop")
-    public String shop(Model model, HttpSession session) {
+    public String shop(Model model, @RequestParam(name = "sumElementsInBasket", required = false, defaultValue = "0") Integer sumElementsInBasket,
+                       @RequestParam(name = "heirloomTomatoCount", required = false, defaultValue = "0") Integer heirloomTomatoCount,
+                       @RequestParam(name = "sweetOnionCount", required = false, defaultValue = "0") Integer sweetOnionCount,
+                       @RequestParam(name = "organicGingerCount", required = false, defaultValue = "0") Integer organicGingerCount) {
         String sortType = "default";
         //default, a-z, price
+
+        model.addAttribute("sumElementsInBasket", sumElementsInBasket);
+        model.addAttribute("heirloomTomatoCount", heirloomTomatoCount);
+        model.addAttribute("sweetOnionCount", sweetOnionCount);
+        model.addAttribute("organicGingerCount", organicGingerCount);
 
         model.addAttribute("data", Today.getFormattedDate());
         model.addAttribute("sortType", sortType);
@@ -23,12 +30,33 @@ public class ShopController {
         return "shop";
     }
     @PostMapping("/submitForm")
-    public String submitForm(@ModelAttribute BasketCounter basketCounter) {
-        // formData.getParam1(), formData.getParam2(), formData.getParam3()
-        zxc = Integer.parseInt(basketCounter.getHeirloomTomatoCount());
+    public ModelAndView submitForm(@ModelAttribute BasketCounter basketCounter) {
+        ModelAndView basketRedirect = new ModelAndView("redirect:/basket");
+        addBasketAttributes(basketRedirect, basketCounter);
 
+        ModelAndView aboutRedirect = new ModelAndView("redirect:/about");
+        addBasketAttributes(aboutRedirect, basketCounter);
 
+        ModelAndView newsRedirect = new ModelAndView("redirect:/news");
+        addBasketAttributes(newsRedirect, basketCounter);
 
-        return "result";
+        ModelAndView homeRedirect = new ModelAndView("redirect:/home");
+        addBasketAttributes(homeRedirect, basketCounter);
+
+        ModelAndView profileRedirect = new ModelAndView("redirect:/profile");
+        addBasketAttributes(profileRedirect, basketCounter);
+
+        ModelAndView shopRedirect = new ModelAndView("redirect:/shop");
+        addBasketAttributes(shopRedirect, basketCounter);
+
+        return basketRedirect;
+    }
+
+    private void addBasketAttributes(ModelAndView modelAndView, BasketCounter basketCounter) {
+
+        modelAndView.addObject("heirloomTomatoCount", basketCounter.getHeirloomTomatoCount());
+        modelAndView.addObject("sweetOnionCount", basketCounter.getSweetOnionCount());
+        modelAndView.addObject("organicGingerCount", basketCounter.getOrganicGingerCount());
+        modelAndView.addObject("sumElementsInBasket", basketCounter.getSumElementsInBasket());
     }
 }
