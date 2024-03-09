@@ -1,17 +1,15 @@
-function writeLbs(clickedElement) {
-    var textField = clickedElement.querySelector('.text');
-
-    // Очищаем поле
-    textField.textContent = '';
-
-    // Делаем текстовое поле редактируемым
-    textField.contentEditable = true;
-
-    // Устанавливаем курсор в начало текста
-    var range = document.createRange();
-    range.selectNodeContents(textField);
-    range.collapse(true);
-    var selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
+function writeLbs(button) {
+    var inputField = button.parentElement.querySelector('.text');
+    
+    // Очистка поля text
+    inputField.textContent = '';
+    
+ // Выбор поля text для редактирования
+ inputField.contentEditable = true;
+ inputField.focus();
+ 
+ // Сброс возможности редактирования после потери фокуса
+ inputField.addEventListener('blur', function() {
+     inputField.contentEditable = false;
+ }, { once: true });
 }
