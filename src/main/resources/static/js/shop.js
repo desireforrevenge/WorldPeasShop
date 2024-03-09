@@ -14,10 +14,18 @@ function changeFormVariable() {
     form.elements['sumElementsInBasket'].value = sumElementsInBasket;
 }
 
-document.getElementById('basketButton').addEventListener('click', function() {
-    document.getElementById('basketForm').submit();
-    window.location.href = this.href;
+document.getElementById('basketButton').addEventListener('click', function(event) {
+    event.preventDefault();  // Предотвращаем обычное поведение кнопки
+
+    var form = document.getElementById('basketForm');
+    form.submit();
+
+    // После успешной отправки формы выполняем переход по ссылке
+    form.addEventListener('submit', function() {
+        window.location.href = this.href;
+    });
 });
+
 
 function addProduct(div) {
     let str = div.id;

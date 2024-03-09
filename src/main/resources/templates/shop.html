@@ -17,7 +17,7 @@
             <a href="about.html" th:href="@{/about}" class="aboutButton">Who we are</a>
             <a href="profile.html" th:href="@{/profile}" class="profileButton">My profile</a>
             <form th:action="@{/submitForm}" method="post" id="basketForm" th:object="${basketCounter}">
-                <a href="basket.html" th:href="@{/basket}" class="basketButton" id="basketButton" onclick="changeFormVariable();">Basket (<span id="basketCount">0</span>)</a>
+                <a href="basket.html" th:href="@{/basket}" class="basketButton" id="basketButton" onclick="changeFormVariable();">Basket (<span id="basketCount" th:text="${sumElementsInBasket}"></span>)</a>
 
                 <input type="text" name="heirloomTomatoCount" id="inputTag" value="Initial Value" th:field="*{heirloomTomatoCount}">
                 <input type="text" name="sweetOnionCount" id="inputTag" value="Initial Value" th:field="*{sweetOnionCount}">
