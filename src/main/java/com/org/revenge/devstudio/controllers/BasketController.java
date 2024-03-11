@@ -44,9 +44,30 @@ public class BasketController {
 
         return "basket";
     }
-    @PostMapping("/submitForm")
-    public String submitForm(@ModelAttribute BasketCounter basketCounter) {
 
-        return "redirect:/basket";
+
+    @PostMapping("/changeValue")
+    public ModelAndView changeValue(@ModelAttribute BasketCounter basketCounter2) {
+        ModelAndView changeValueModel = new ModelAndView("redirect:/basket");
+
+        int heirloomTomato = 0;
+        int sweetOnion = 0;
+        int organicGinger = 0;
+
+        // Проверяем каждое поле на null или пустую строку
+        if (basketCounter2.getHeirloomTomatoCount() != null && !basketCounter2.getHeirloomTomatoCount().isEmpty()) {
+            changeValueModel.addObject("heirloomTomatoCount", basketCounter2.getHeirloomTomatoCount());
+            heirloomTomato = Integer.parseInt(basketCounter2.getHeirloomTomatoCount());
+        } else if (basketCounter2.getSweetOnionCount() != null && !basketCounter2.getSweetOnionCount().isEmpty()) {
+            changeValueModel.addObject("sweetOnionCount", basketCounter2.getSweetOnionCount());
+            sweetOnion = Integer.parseInt(basketCounter2.getSweetOnionCount());
+        } else if (basketCounter2.getOrganicGingerCount() != null && !basketCounter2.getOrganicGingerCount().isEmpty()) {
+            changeValueModel.addObject("organicGingerCount", basketCounter2.getOrganicGingerCount());
+            organicGinger = Integer.parseInt(basketCounter2.getOrganicGingerCount());
+        }
+        changeValueModel.addObject("sumElementsInBasket", heirloomTomato + sweetOnion + organicGinger);
+
+        return changeValueModel;
     }
+
 }

@@ -29,10 +29,15 @@
             <p class="productLbPrice">$<span th:text="${priceHeirloomTomato}"></span>&nbsp;/&nbsp;lb</p>
             <p class="totalPrice" th:text="${totalPrice1}"></p>
             <div class="inputLbField">
-                <div class="text"><span id="text1" th:text="${heirloomTomatoCount}"></span>&nbsp;lb</div>
-                <button class="icon" onclick="writeLbs(this);">
-                    <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
-                </button>
+                <form th:action="@{/changeValue}" method="post">
+                    <div class="text">
+                        <input type="text" name="heirloomTomatoCount" id="text1" th:value="${heirloomTomatoCount}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lb
+                    </div>
+                    <!-- СДЕЛАТЬ COOKIES -->
+                    <button class="icon" type="submit" onclick="getCookieValues()">
+                        <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
+                    </button>
+                </form>
             </div>
         </div>
         <div class="product product_2">
@@ -41,10 +46,14 @@
             <p class="productLbPrice">$<span th:text="${priceSweetOnion}"></span>&nbsp;/&nbsp;lb</p>
             <p class="totalPrice" th:text="${totalPrice2}"></p>
             <div class="inputLbField">
-                <p class="text"><span id="text2" th:text="${sweetOnionCount}"></span>&nbsp;lb</p>
-                <button class="icon" onclick="writeLbs(this);">
-                    <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
-                </button>
+                <form th:action="@{/changeValue}" method="post">
+                    <div class="text">
+                        <input type="text" name="sweetOnionCount" id="text2" th:value="${sweetOnionCount}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lb
+                    </div>
+                    <button class="icon" type="submit" onclick="getCookieValues()">
+                        <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
+                    </button>
+                </form>
             </div>
         </div>
         <div class="product product_3">
@@ -53,10 +62,14 @@
             <p class="productLbPrice">$<span th:text="${priceOrganicGinger}"></span>&nbsp;/&nbsp;lb</p>
             <p class="totalPrice" th:text="${totalPrice3}"></p>
             <div class="inputLbField">
-                <p class="text"><span id="text3" th:text="${organicGingerCount}"></span>&nbsp;lb</p>
-                <button class="icon" onclick="writeLbs(this);">
-                    <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
-                </button>
+                <form th:action="@{/changeValue}" method="post">
+                    <div class="text">
+                        <input type="text" name="organicGingerCount" id="text3" th:value="${organicGingerCount}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lb
+                    </div>
+                    <button class="icon" type="submit" onclick="getCookieValues()">
+                        <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
+                    </button>
+                </form>
             </div>
         </div>
     </div>
