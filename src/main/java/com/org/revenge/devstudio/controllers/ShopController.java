@@ -53,7 +53,6 @@ public class ShopController {
     }
 
     private void addBasketAttributes(ModelAndView modelAndView, BasketCounter basketCounter) {
-
         modelAndView.addObject("heirloomTomatoCount", basketCounter.getHeirloomTomatoCount());
         modelAndView.addObject("sweetOnionCount", basketCounter.getSweetOnionCount());
         modelAndView.addObject("organicGingerCount", basketCounter.getOrganicGingerCount());
