@@ -82,7 +82,7 @@ header {
     letter-spacing: -1%;
     text-align: left;
 
-    width: calc(156px / 3 * 4);
+    width: calc(200px / 3 * 4);
     height: calc(37px / 3 * 4);
 }
 .shopButton {

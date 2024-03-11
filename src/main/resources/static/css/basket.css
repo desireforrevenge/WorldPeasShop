@@ -78,7 +78,7 @@ header {
     letter-spacing: -1%;
     text-align: left;
 
-    width: calc(156px / 3 * 4);
+    width: calc(200px / 3 * 4);
     height: calc(37px / 3 * 4);
 }
 .shopButton {
@@ -222,7 +222,7 @@ header {
 .itemsTypeCount {
     position: absolute;
     top: calc(90px / 3 * 4);
-    left: calc(275px / 3 * 4);
+    left: calc(301px / 3 * 4);
 
     color: rgb(0, 0, 0);
     font-family: "Inter", sans-serif;
@@ -347,6 +347,17 @@ header {
     line-height: 130%;
     letter-spacing: 0%;
     text-align: left;
+}
+input[type="text"] {
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px * 1.2);
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left;
+
+    width: calc(95px);
 }
 .icon {
     position: absolute;

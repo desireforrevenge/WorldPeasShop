@@ -81,7 +81,7 @@ header {
     letter-spacing: -1%;
     text-align: left;
 
-    width: calc(156px / 3 * 4);
+    width: calc(200px / 3 * 4);
     height: calc(37px / 3 * 4);
 }
 .shopButton {
@@ -221,8 +221,8 @@ header {
 }
 .todayLocate {
     position: absolute;
-    top: calc(93px / 3 * 4);
-    left: calc(315px / 3 * 4);
+    top: calc(90px / 3 * 4);
+    left: calc(347px / 3 * 4);
 }
 .boldFresh {
     font-family: "Inter", sans-serif;
