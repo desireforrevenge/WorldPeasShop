@@ -12,6 +12,11 @@ function changeFormVariable() {
     form.elements['sweetOnionCount'].value = sweetOnionCount;
     form.elements['organicGingerCount'].value = organicGingerCount;
     form.elements['sumElementsInBasket'].value = sumElementsInBasket;
+
+    if (heirloomTomatoCount !== 0) setCookie("heirloomTomatoCount", heirloomTomatoCount, 7);
+    if (sweetOnionCount !== 0) setCookie("sweetOnionCount", sweetOnionCount, 7);
+    if (organicGingerCount !== 0) setCookie("organicGingerCount", sweetOnionCount, 7);
+    setCookie("sumElementsInBasket", heirloomTomatoCount + sweetOnionCount + organicGingerCount, 7);
 }
 
 document.getElementById('basketButton').addEventListener('click', function(event) {

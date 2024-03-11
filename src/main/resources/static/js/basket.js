@@ -1,15 +1,15 @@
-function writeLbs(button) {
-    var inputField = button.parentElement.querySelector('.text');
+function getCookieValues() {
+    //Если HeirloomTomato == 0
+    if (parseInt(document.getElementById('text1').value) === 0) {
+        document.getElementById('text1').value = getCookie("heirloomTomatoCount")
+    } 
+    //SweetOnion
+    if (parseInt(document.getElementById('text2').value) === 0) {
+        document.getElementById('text2').value = getCookie("sweetOnionCount")
+    } 
+    //OrganicGinger
+    if (parseInt(document.getElementById('text3').value) === 0) {
+        document.getElementById('text3').value = getCookie("organicGingerCount")
+    } 
     
-    // Очистка поля text
-    inputField.textContent = '';
-    
- // Выбор поля text для редактирования
- inputField.contentEditable = true;
- inputField.focus();
- 
- // Сброс возможности редактирования после потери фокуса
- inputField.addEventListener('blur', function() {
-     inputField.contentEditable = false;
- }, { once: true });
 }
