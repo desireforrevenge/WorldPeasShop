@@ -47,6 +47,236 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ---------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
 
+body, header, html {
+    margin: 0 auto;
+}
+body {
+    background-color: #ffffffd8;
+}
+header {
+    height: calc(112px / 3 * 4);
+    
+}
+.homeButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(96px / 3 * 4);
+    top: calc(41px / 3 * 4);
+    bottom: calc(31px / 3 * 4);
 
+    color: #426B1F;
+    font-family: "Newsreader", serif;
+    font-size: calc(32px / 3 * 4);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -1%;
+    text-align: left;
 
+    width: calc(200px / 3 * 4);
+    height: calc(37px / 3 * 4);
+}
+.shopButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(744px / 3 * 4);
+    top: calc(45.5px / 3 * 4);
+    bottom: calc(45.5px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px / 3 * 4);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    width: calc(44px / 3 * 4);
+    height: calc(26px / 3 * 4);
+}
+.newsButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(831px / 3 * 4);
+    top: calc(45.5px / 3 * 4);
+    bottom: calc(45.5px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px / 3 * 4);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    width: calc(82px / 3 * 4);
+    height: calc(26px / 3 * 4);
+}
+.aboutButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(956px / 3 * 4);
+    top: calc(45.5px / 3 * 4);
+    bottom: calc(45.5px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px / 3 * 4);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    width: calc(95px / 3 * 4);
+    height: calc(26px / 3 * 4);
+}
+.profileButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(1094px / 3 * 4);
+    top: calc(45.5px / 3 * 4);
+    bottom: calc(45.5px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px / 3 * 4);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    width: calc(81px / 3 * 4);
+    height: calc(26px / 3 * 4);
+}
+.basketButton {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    left: calc(1218px / 3 * 4);
+    top: calc(32px / 3 * 4);
+    bottom: calc(32px / 3 * 4);
+    width: calc(126px / 3 * 4); 
+    height: calc(48px / 3 * 4);
+    border-radius: 8px;
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px / 3 * 4);
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0%;
+    justify-content: center;
+    
+    background-color: #426B1F;
+
+    transition: filter 0.3s ease;
+}
+.basketButton:hover {
+    filter: brightness(0.8);
+}
+
+.newsField {
+    position: absolute;
+    width: calc(1133px / 3 * 4);
+    height: calc(1688px / 3 * 4);
+    left: calc(154px / 3 * 4);
+    top: calc(112px / 3 * 4);
+
+    background: rgb(255, 255, 255);
+}
+.card {
+    position: absolute;
+    width: calc(1133px / 3 * 4);
+    height: calc(298px / 3 * 4);
+    
+    box-sizing: border-box;
+    border: 2px solid rgb(230, 230, 230);
+    border-radius: 39px;
+    background: rgb(250, 250, 245);
+}
+.pos1 {
+    top: calc(0px / 3 * 4);
+}
+.pos2 {
+    top: calc(338px / 3 * 4);
+}
+.pos3 {
+    top: calc(676px / 3 * 4);
+}
+.pos4 {
+    top: calc(1014px / 3 * 4);
+}
+.pos5 {
+    top: calc(1352px / 3 * 4);
+}
+.heading {  
+    position: absolute;
+    width: calc(779px / 3 * 4);
+    height: calc(54px / 3 * 4);
+    left: calc(286px / 3 * 4);
+    top: calc(38px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(36px * 1.2);
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+.description {
+    position: absolute;
+    width: calc(779px / 3 * 4);
+    height: calc(112px / 3 * 4);
+    left: calc(286px / 3 * 4);
+    top: calc(92px / 3 * 4);
+
+    color: rgba(0, 0, 0, 0.65);
+    font-family: "Inter", sans-serif;
+    font-size: calc(20px * 1.2);
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+.picture {
+    position: absolute;
+    width: calc(224px / 3 * 4);
+    height: calc(222px / 3 * 4);
+    left: calc(38px / 3 * 4);
+    top: calc(38px / 3 * 4);
+
+    border-radius: 39px;
+}
+.readButton {
+    position: absolute;
+    width: calc(151px / 3 * 4);
+    height: calc(56px / 3 * 4);
+    left: calc(932px / 3 * 4);
+    top: calc(204px / 3 * 4);
+
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: rgb(66, 107, 31);
+
+    color: rgb(255, 255, 255);
+    font-family: "Inter", sans-serif;
+    font-size: calc(24px * 1.2);
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+
+    transition: filter 0.3s ease;
+}
+.readButton:hover {
+    filter: brightness(0.8);
+}

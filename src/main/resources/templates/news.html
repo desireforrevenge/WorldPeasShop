@@ -5,13 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{css/news.css}">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <title>World Peas | Basket</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <title>World Peas | News</title>
 </head>
 <body>
-    <body>
-        <div class="container">
-            <p>прив я новасти</p>
+    <header>
+        <nav class="nav">
+            <a href="home.html" th:href="@{/}" class="homeButton">World Peas</a>
+            <a href="shop.html" th:href="@{/shop}" class="shopButton">Shop</a>
+            <a href="news.html" th:href="@{/news}" class="newsButton">Newstand</a>
+            <a href="about.html" th:href="@{/about}" class="aboutButton">Who we are</a>
+            <a href="profile.html" th:href="@{/profile}" class="profileButton">My profile</a>
+            <a href="basket.html" th:href="@{/basket}" class="basketButton">Basket (<span th:text="${sumElementsInBasket}" id="basketButtonText"></span>)</a>
+        </nav>
+    </header>
+    <main>
+        <div class="newsField">
+            <div class="card pos1">
+                <p class="heading">Cultivating Green Dreams</p>
+                <p class="description">In the heart of GreenHarvest Farms, a bucolic haven dedicated to the art of sustainable farming, the rhythmic dance of leaves, the hum of busy bees, and the gentle rustle of wind through crops create a symphony that echoes our commitment to cultivating green dreams.</p>
+                <img src="https://i.pinimg.com/564x/70/8d/ca/708dcaab16197d4f85fd10c3d7f1e005.jpg" alt="" class="picture">
+                <button class="readButton">Read</button>
+                <!-- переделать в link -->
+            </div>
+            <div class="card pos2">
+                <p class="heading">A Day in the Life at WorldPeas</p>
+                <p class="description">In WorldPeas' expansive landscape, Jake, a seasoned caretaker, orchestrates our agricultural symphony amid vast, green fields. "Cultivating Green Dreams" embodies our way of life, where nature's pulse aligns with our commitment to deliver the freshest, homegrown vegetables.</p>
+                <img src="https://i.pinimg.com/236x/51/4f/cc/514fccc2af7f61249f38e6c11e81b797.jpg" alt="" class="picture">
+                <button class="readButton">Read</button>
+            </div>
+            <div class="card pos3">
+                <p class="heading">Glass Canopies of Growth</p>
+                <p class="description">In the avant-garde world of CrystalBotanics, the future of farming unfolds beneath the translucent embrace of glass canopies. This captivating image captures not just the essence of a new era in agriculture but the embodiment of innovation and sustainable cultivation practices.</p>
+                <img src="https://i.pinimg.com/236x/9d/7b/c8/9d7bc8a3e0b8a0ee6136d8873af3fe04.jpg" alt="" class="picture">
+                <button class="readButton">Read</button>
+            </div>
+            <div class="card pos4">
+                <p class="heading">The Timeless Elegance</p>
+                <p class="description">In the captivating image captured by the lens of nature's poet, we find ourselves immersed in the tranquil embrace of a majestic tree. This arboreal masterpiece stands as a silent guardian, its branches reaching towards the sky, and its roots firmly anchored in the earth below.</p>
+                <img src="https://i.pinimg.com/236x/52/e9/f5/52e9f55be3f9ff605a658b71c07e1b8e.jpg" alt="" class="picture">
+                <button class="readButton">Read</button>
+            </div>
+            <div class="card pos5">
+                <p class="heading">The Unseen Benefits of Trees Revealed</p>
+                <p class="description">In the serene tableau captured in this image, the spotlight is on a singular tree, standing tall amidst the landscape like a silent guardian of well-being. Beyond its aesthetic charm, this picture prompts us to delve into the myriad ways trees contribute to our lives, offering a bounty of benefits that often go unnoticed.</p>
+                <img src="https://i.pinimg.com/236x/40/c3/41/40c341d4ac770d275efac452c34dd6d6.jpg" alt="" class="picture">
+                <button class="readButton">Read</button>
+            </div>
         </div>
-    </body>
+    </main>
 </body>
 </html>
