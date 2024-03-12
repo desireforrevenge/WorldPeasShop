@@ -1,0 +1,23 @@
+Products count:
+1. heirloomTomatoCount
+	Cookies.set('heirloomTomatoCount', '(value)', { expires: 7 });
+	Cookies.get('heirloomTomatoCount');
+2. sweetOnionCount
+	Cookies.set('sweetOnionCount', '(value)', { expires: 7 });
+	Cookies.get('sweetOnionCount');
+3. organicGingerCount
+	Cookies.set('organicGingerCount', '(value)', { expires: 7 });
+	Cookies.get('organicGingerCount');
+4. sumElementsInBasket
+	Cookies.set('sumElementsInBasket', parseInt(Cookies.get('heirloomTomatoCount')) + parseInt(Cookies.get('sweetOnionCount')) + parseInt(Cookies.get('organicGingerCount')), { expires: 7 });
+	Cookies.get('sumElementsInBasket');
+Sort types:
+1. default
+	Cookies.set('sortType', 'default', { expires: 7 });
+	Cookies.get('sortType');
+2. name
+	Cookies.set('sortType', 'name', { expires: 7 });
+	Cookies.get('sortType');
+3. price
+	Cookies.set('sortType', 'price', { expires: 7 });
+	Cookies.get('sortType');
