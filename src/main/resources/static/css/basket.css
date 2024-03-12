@@ -258,20 +258,6 @@ header {
 .product_3 {
     top: calc(382px / 3 * 4);
 }
-/* ПЕРЕНЕСТИ ВНИЗ (К ОФОРМЛЕНИЮ ВСЕХ ЭЛЕМЕНТОВ ПОЛЯ ORDER SUMMARY) */
-.orderSummary {
-    position: absolute;
-    width: calc(395px / 3 * 4);
-    height: calc(318px / 3 * 4);
-    left: calc(949px / 3 * 4);
-    top: calc(301px / 3 * 4);
-
-    box-sizing: border-box;
-    border: 2px solid rgb(230, 230, 230);
-    border-radius: calc(24px / 3 * 4);
-    background: rgb(250, 250, 245);
-}
-/* ПЕРЕНЕСТИ ВНИЗ (К ОФОРМЛЕНИЮ ВСЕХ ЭЛЕМЕНТОВ ПОЛЯ ORDER SUMMARY) */
 .productPicture {
     position: absolute;
     width: calc(160px / 3 * 4);
@@ -380,4 +366,205 @@ input[type="text"] {
 
     left: 4px;
     top: calc(1px / 3 * 4);
+}
+[id="inputTag"] {
+    display: none;
+}
+.orderSummary {
+    position: absolute;
+    width: calc(395px / 3 * 4);
+    height: calc(318px / 3 * 4);
+    left: calc(949px / 3 * 4);
+    top: calc(301px / 3 * 4);
+
+    box-sizing: border-box;
+    border: 2px solid rgb(230, 230, 230);
+    border-radius: calc(24px / 3 * 4);
+    background: rgb(250, 250, 245);
+
+    
+}
+.orderSummaryText {
+    position: absolute;
+
+    width: calc(151px / 3 * 4);
+    height: calc(26px / 3 * 4);
+
+    left: calc(24px / 3 * 4);
+    top: calc(24px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(20px * 1.2);
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.subtotalText {
+    position: absolute;
+
+    width: calc(64px / 3 * 4);
+    height: calc(21px / 3 * 4);
+
+    left: calc(24px / 3 * 4);
+    top: calc(82px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px * 1.2);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.shippingText {
+    position: absolute;
+
+    width: calc(66px / 3 * 4);
+    height: calc(21px / 3 * 4);
+
+    left: calc(24px / 3 * 4);
+    top: calc(119px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px * 1.2);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.taxText {
+    position: absolute;
+
+    width: calc(27px / 3 * 4);
+    height: calc(21px / 3 * 4);
+
+    left: calc(24px / 3 * 4);
+    top: calc(156px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px * 1.2);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.totalText {
+    position: absolute;
+
+    width: calc(39px / 3 * 4);
+    height: calc(21px / 3 * 4);
+
+    left: calc(24px / 3 * 4);
+    top: calc(193px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px * 1.2);
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.subtotal {
+    position: absolute;
+    width: calc(54px / 3 * 4);
+    height: calc(21px / 3 * 4);
+    left: calc(317px / 3 * 4);
+    top: calc(82px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px * 1.2);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: right;
+}
+.shipping {
+    position: absolute;
+    width: calc(44px / 3 * 4);
+    height: calc(21px / 3 * 4);
+    left: calc(327px / 3 * 4);
+    top: calc(119px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px * 1.2);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: right;
+}
+.tax {
+    position: absolute;
+    width: calc(45px / 3 * 4);
+    height: calc(21px / 3 * 4);
+    left: calc(326px / 3 * 4);
+    top: calc(156px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px * 1.2);
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: right;
+}
+.total {
+    position: absolute;
+    width: calc(56px / 3 * 4);
+    height: calc(21px / 3 * 4);
+    left: calc(315px / 3 * 4);
+    top: calc(190px / 3 * 4);
+
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px * 1.2);
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: right;
+}
+.continueButton {
+    position: absolute;
+    width: calc(347px / 3 * 4);
+    height: calc(48px / 3 * 4);
+
+    left: calc(24px / 3 * 4);
+    top: calc(246px / 3 * 4);
+
+    border-radius: 8px; 
+    background: rgb(66, 107, 31);
+}
+.continueToPaymentText {
+    position: absolute;
+    width: calc(163px / 3 * 4);
+    height: calc(21px / 3 * 4);
+
+    left: calc(24px / 3 * 4);
+    top: calc(14px / 3 * 4);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    color: rgb(255, 255, 255);
+    font-family: "Inter", sans-serif;
+    font-size: calc(16px * 1.2);
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.arrow {
+    position: absolute;
+    width: calc(32px / 3 * 4);
+    height: calc(32px / 3 * 4);
+
+    left: calc(299px / 3 * 4);
+    top: calc(8px / 3 * 4);
 }
