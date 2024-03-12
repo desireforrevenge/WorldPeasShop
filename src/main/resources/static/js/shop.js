@@ -3,7 +3,15 @@ var sweetOnionCount = 0;
 var organicGingerCount = 0;
 var sumElementsInBasket = 0;
 
+window.onload = function() {
+    Cookies.set('sumElementsInBasket', parseInt(Cookies.get('heirloomTomatoCount')) + parseInt(Cookies.get('sweetOnionCount')) + parseInt(Cookies.get('organicGingerCount')), { expires: 7 });
 
+    document.getElementById('basketCount').textContent = Cookies.get('sumElementsInBasket');
+
+    document.getElementById('number_1').textContent = Cookies.get('heirloomTomatoCount');
+    document.getElementById('number_2').textContent = Cookies.get('sweetOnionCount');
+    document.getElementById('number_3').textContent = Cookies.get('organicGingerCount');
+};
 
 function changeFormVariable() {
     var form = document.getElementById('basketForm');
@@ -13,10 +21,16 @@ function changeFormVariable() {
     form.elements['organicGingerCount'].value = organicGingerCount;
     form.elements['sumElementsInBasket'].value = sumElementsInBasket;
 
-    if (heirloomTomatoCount !== 0) setCookie("heirloomTomatoCount", heirloomTomatoCount, 7);
-    if (sweetOnionCount !== 0) setCookie("sweetOnionCount", sweetOnionCount, 7);
-    if (organicGingerCount !== 0) setCookie("organicGingerCount", sweetOnionCount, 7);
-    setCookie("sumElementsInBasket", heirloomTomatoCount + sweetOnionCount + organicGingerCount, 7);
+    if (heirloomTomatoCount !== 0) {
+        Cookies.set('heirloomTomatoCount', heirloomTomatoCount, { expires: 7 });
+    }
+    if (sweetOnionCount !== 0) {
+        Cookies.set('sweetOnionCount', sweetOnionCount, { expires: 7 });
+    } 
+    if (organicGingerCount !== 0) {
+        Cookies.set('organicGingerCount', organicGingerCount, { expires: 7 });
+    } 
+    Cookies.set('sumElementsInBasket', heirloomTomatoCount + sweetOnionCount + organicGingerCount, { expires: 7 });
 }
 
 document.getElementById('basketButton').addEventListener('click', function(event) {
@@ -30,7 +44,6 @@ document.getElementById('basketButton').addEventListener('click', function(event
         window.location.href = this.href;
     });
 });
-
 
 function addProduct(div) {
     let str = div.id;
@@ -62,13 +75,13 @@ function removeProduct(div) {
     let help = 'number_' + str[last];
     let currentValue = parseInt(document.getElementById(help).textContent);
 
-    if (str[last] === '1') { 
+    if (str[last] === '1' && Cookies.get('heirloomTomatoCount') > 0) { 
         heirloomTomatoCount--;
         sumElementsInBasket--;
-    } else if (str[last] === '2') {
+    } else if (str[last] === '2' && Cookies.get('sweetOnionCount') > 0) {
         sweetOnionCount--;
         sumElementsInBasket--;
-    } else if (str[last] === '3') {
+    } else if (str[last] === '3' && Cookies.get('organicGingerCount') > 0) {
         organicGingerCount--;
         sumElementsInBasket--;
     }
@@ -161,6 +174,7 @@ function sortByName() {
             document.getElementById('productList').appendChild(document.querySelector('.organicGingerNumber'));
         }
     }
+    Cookies.set('sortType', 'name', { expires: 7 });
 }
 
 function sortByPrice() {
@@ -243,7 +257,7 @@ function sortByPrice() {
             document.getElementById('productList').appendChild(document.querySelector('.organicGingerNumber'));
         }
     }
-    
+    Cookies.set('sortType', 'price', { expires: 7 });
     }
     function sortDefault() {
         var productList = document.getElementById('productList');
@@ -325,10 +339,11 @@ function sortByPrice() {
             document.getElementById('productList').appendChild(document.querySelector('.organicGingerNumber'));
         }
     }
+    Cookies.set('sortType', 'default', { expires: 7 });
     }
 
 
-
+    
 
 function resetButtonStyles() {
     var buttonsDiv = document.getElementById('buttons');

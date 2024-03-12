@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{css/basket.css}">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <script th:src="@{js/basket.js}" defer="defer"></script>
     <title>World Peas | Basket</title>
 </head>
@@ -15,26 +16,31 @@
         <a href="news.html" th:href="@{/news}" class="newsButton">Newstand</a>
         <a href="about.html" th:href="@{/about}" class="aboutButton">Who we are</a>
         <a href="profile.html" th:href="@{/profile}" class="profileButton">My profile</a>
-        <a href="basket.html" th:href="@{/basket}" class="basketButton">Basket (<span th:text="${sumElementsInBasket}"></span>)</a>
+        <!-- ЕСТЬ БАГ!
+        Значение кол-ва элементов в корзине обновляется не сразу, а только после второй отправки формы. -->
+        <a href="basket.html" th:href="@{/basket}" class="basketButton">Basket (<span th:text="${sumElementsInBasket}" id="basketButtonText"></span>)</a>
     </nav>
     <div class="basketHeader">
         <h1 class="caption">Basket</h1>
-        <p class="itemsTypeCount"><span th:text="${typesProducts}"></span>&nbsp;items</p>
+        <p class="itemsTypeCount"><span id="itemsTypeCount" th:text="${typesProducts}"></span>&nbsp;items</p>
         <hr class="divider">
     </div>
     <div class="productList">
         <div class="product product_1">
             <img src="https://imgc.artprintimages.com/img/print/mitch-diamond-tomatoes-on-vine_u-l-pxz7un0.jpg?background=f3f3f3" alt="" class="productPicture">
             <p class="productName">Heirloom tomato</p>
-            <p class="productLbPrice">$<span th:text="${priceHeirloomTomato}"></span>&nbsp;/&nbsp;lb</p>
-            <p class="totalPrice" th:text="${totalPrice1}"></p>
+            <p class="productLbPrice">$<span th:text="${priceHeirloomTomato}" id="productLbPrice1"></span>&nbsp;/&nbsp;lb</p>
+            <p class="totalPrice" th:text="${totalPrice1}" id="totalPrice1"></p>
             <div class="inputLbField">
-                <form th:action="@{/changeValue}" method="post">
+                <form th:action="@{/changeValue}" method="post" th:object="${basketCounter2}">
                     <div class="text">
-                        <input type="text" name="heirloomTomatoCount" id="text1" th:value="${heirloomTomatoCount}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lb
+                        <input type="text" name="heirloomTomatoCount" id="text1" th:value="${heirloomTomatoCount}" th:field="*{heirloomTomatoCount}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lb
+
+                        <input type="text" name="sweetOnionCount" id="inputTag" value="Initial Value" th:field="*{sweetOnionCount}">
+                        <input type="text" name="organicGingerCount" id="inputTag" value="Initial Value" th:field="*{organicGingerCount}">
+                        <input type="text" name="sumElementsInBasket" id="inputTag" value="Initial Value" th:field="*{sumElementsInBasket}">
                     </div>
-                    <!-- СДЕЛАТЬ COOKIES -->
-                    <button class="icon" type="submit" onclick="getCookieValues()">
+                    <button class="icon" type="submit" onclick="changeValue(this)">
                         <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
                     </button>
                 </form>
@@ -43,14 +49,18 @@
         <div class="product product_2">
             <img src="https://www.localguidesconnect.com/t5/image/serverpage/image-id/1459713i630E85CDBE00D075/image-size/medium?v=v2&px=400" alt="" class="productPicture">
             <p class="productName">Sweet onion</p>
-            <p class="productLbPrice">$<span th:text="${priceSweetOnion}"></span>&nbsp;/&nbsp;lb</p>
-            <p class="totalPrice" th:text="${totalPrice2}"></p>
+            <p class="productLbPrice">$<span th:text="${priceSweetOnion}" id="productLbPrice2"></span>&nbsp;/&nbsp;lb</p>
+            <p class="totalPrice" th:text="${totalPrice2}" id="totalPrice2"></p>
             <div class="inputLbField">
-                <form th:action="@{/changeValue}" method="post">
+                <form th:action="@{/changeValue}" method="post" th:object="${basketCounter2}">
                     <div class="text">
-                        <input type="text" name="sweetOnionCount" id="text2" th:value="${sweetOnionCount}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lb
+                        <input type="text" name="sweetOnionCount" id="text2" th:value="${sweetOnionCount}" th:field="${sweetOnionCount}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lb
+
+                        <input type="text" name="heirloomTomatoCount" id="inputTag" value="Initial Value" th:field="*{heirloomTomatoCount}">
+                        <input type="text" name="organicGingerCount" id="inputTag" value="Initial Value" th:field="*{organicGingerCount}">
+                        <input type="text" name="sumElementsInBasket" id="inputTag" value="Initial Value" th:field="*{sumElementsInBasket}">
                     </div>
-                    <button class="icon" type="submit" onclick="getCookieValues()">
+                    <button class="icon" type="submit" onclick="changeValue(this)">
                         <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
                     </button>
                 </form>
@@ -59,14 +69,18 @@
         <div class="product product_3">
             <img src="https://farzana.ae/images/thumbs/0007672_organic-ginger.jpeg" alt="" class="productPicture">
             <p class="productName">Organic ginger</p>
-            <p class="productLbPrice">$<span th:text="${priceOrganicGinger}"></span>&nbsp;/&nbsp;lb</p>
-            <p class="totalPrice" th:text="${totalPrice3}"></p>
+            <p class="productLbPrice">$<span th:text="${priceOrganicGinger}"  id="productLbPrice3"></span>&nbsp;/&nbsp;lb</p>
+            <p class="totalPrice" th:text="${totalPrice3}" id="totalPrice3"></p>
             <div class="inputLbField">
-                <form th:action="@{/changeValue}" method="post">
+                <form th:action="@{/changeValue}" method="post" th:object="${basketCounter2}">
                     <div class="text">
-                        <input type="text" name="organicGingerCount" id="text3" th:value="${organicGingerCount}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lb
+                        <input type="text" name="organicGingerCount" id="text3" th:value="${organicGingerCount}" th:field="*{organicGingerCount}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lb
+
+                        <input type="text" name="heirloomTomatoCount" id="inputTag" value="Initial Value" th:field="*{heirloomTomatoCount}">
+                        <input type="text" name="sweetOnionCount" id="inputTag" value="Initial Value" th:field="*{sweetOnionCount}">
+                        <input type="text" name="sumElementsInBasket" id="inputTag" value="Initial Value" th:field="*{sumElementsInBasket}">
                     </div>
-                    <button class="icon" type="submit" onclick="getCookieValues()">
+                    <button class="icon" type="submit" onclick="changeValue(this)">
                         <img src="https://www.svgrepo.com/show/520884/pencil.svg" alt="" class="union">
                     </button>
                 </form>
@@ -74,7 +88,22 @@
         </div>
     </div>
     <div class="orderSummary">
+        <p class="orderSummaryText">Order summary</p>
 
+        <p class="subtotalText">Subtotal</p>
+        <p class="shippingText">Shipping</p>
+        <p class="taxText">Tax</p>
+        <p class="totalText">Total</p>
+
+        <p class="subtotal" id="subtotal">$0</p>
+        <p class="shipping" id="shipping">$0</p>
+        <p class="tax" id="tax">$0</p>
+        <p class="total" id="total">$0</p>
+
+        <button class="continueButton">
+            <img src="https://www.svgrepo.com/show/509604/arrow6.svg" alt="" class="arrow">
+            <p class="continueToPaymentText">Continue to payment</p>
+        </button>
     </div>
 </body>
 </html>
