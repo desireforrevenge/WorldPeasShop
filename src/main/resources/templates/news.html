@@ -6,6 +6,7 @@
     <link rel="stylesheet" th:href="@{css/news.css}">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script th:src="@{js/news.js}" defer="defer"></script>
     <title>World Peas | News</title>
 </head>
 <body>
@@ -25,32 +26,63 @@
                 <p class="heading">Cultivating Green Dreams</p>
                 <p class="description">In the heart of GreenHarvest Farms, a bucolic haven dedicated to the art of sustainable farming, the rhythmic dance of leaves, the hum of busy bees, and the gentle rustle of wind through crops create a symphony that echoes our commitment to cultivating green dreams.</p>
                 <img src="https://i.pinimg.com/564x/70/8d/ca/708dcaab16197d4f85fd10c3d7f1e005.jpg" alt="" class="picture">
-                <button class="readButton">Read</button>
-                <!-- переделать в link -->
+                <form th:action="@{/readNews}" method="post">
+                    <button class="readButton" type="submit">Read</button>
+
+                    <input type="text" name="text" id="inputText" value="In the heart of GreenHarvest Farms, a bucolic haven dedicated to the art of sustainable farming, the rhythmic dance of leaves, the hum of busy bees, and the gentle rustle of wind through crops create a symphony that echoes our commitment to cultivating green dreams.
+                    <br><br>
+                    At the break of dawn, our seasoned caretakers, like the dedicated Alice, embark on a daily journey that transcends the mundane. Alice, with her hands weathered by the elements, is a steward of the land, a guardian of the delicate balance between nature and nurture. Her story is one of passion, a tale woven into the fabric of GreenHarvest's philosophy.
+                    <br><br>
+                    Today, as the sun ascends in the vast canvas of the sky, Alice discovers a cluster of ladybugs nestled amidst the cucumber vines. This unexpected alliance between nature's tiny defenders and our crops becomes a whimsical anecdote, a snapshot shared across our digital platforms. It's not just a moment captured but a connection forged between the enchanting events on our farm and the lives of those who enjoy our produce.
+                    <br><br>
+                    The midday sun casts a warm glow on our fields, where the team gathers under the shade of the towering oak tree. It's a time for laughter, stories, and a sense of kinship. Alice recounts the tale of a mischievous rabbit that once tried to outsmart her in the carrot patch, adding a touch of camaraderie to the agricultural narratives of GreenHarvest Farms.
+                    <br><br>
+                    As the afternoon progresses, Alice meticulously tends to the soil, implementing sustainable practices that include composting, crop rotation, and natural pest control. GreenHarvest's commitment to organic farming isn't just a promise but a way of life, ensuring that each vegetable plucked from our fields carries the essence of nature's purest form.
+                    <br><br>
+                    The golden hours of the evening witness the culmination of a day's toil as Alice oversees the harvest. The vibrant colors of freshly picked vegetables tell a story of dedication, care, and an unwavering commitment to sustainable agriculture. It's not just about providing nourishment but about sowing the seeds for a greener, healthier future.
+                    <br><br>
+                    In the tapestry of GreenHarvest Farms, &quot;Cultivating Green Dreams&quot; isn't a mere slogan; it's a mantra that guides every action, every decision. Join us on this journey where the dream isn't just green but sustainable, where the symphony of nature and human effort harmonize to bring you the freshest, most ethically grown produce. GreenHarvest Farms – where every vegetable is a testament to our commitment to cultivating dreams that are as vibrant and sustainable as the fields that bear them.">
+                </form>
             </div>
             <div class="card pos2">
                 <p class="heading">A Day in the Life at WorldPeas</p>
                 <p class="description">In WorldPeas' expansive landscape, Jake, a seasoned caretaker, orchestrates our agricultural symphony amid vast, green fields. "Cultivating Green Dreams" embodies our way of life, where nature's pulse aligns with our commitment to deliver the freshest, homegrown vegetables.</p>
                 <img src="https://i.pinimg.com/236x/51/4f/cc/514fccc2af7f61249f38e6c11e81b797.jpg" alt="" class="picture">
-                <button class="readButton">Read</button>
+                <form th:action="@{/readNews}" method="post">
+                    <button class="readButton" type="submit">Read</button>
+
+                    <input type="text" name="text" id="inputText" value="1">
+                </form>
             </div>
             <div class="card pos3">
                 <p class="heading">Glass Canopies of Growth</p>
                 <p class="description">In the avant-garde world of CrystalBotanics, the future of farming unfolds beneath the translucent embrace of glass canopies. This captivating image captures not just the essence of a new era in agriculture but the embodiment of innovation and sustainable cultivation practices.</p>
                 <img src="https://i.pinimg.com/236x/9d/7b/c8/9d7bc8a3e0b8a0ee6136d8873af3fe04.jpg" alt="" class="picture">
-                <button class="readButton">Read</button>
+                <form th:action="@{/readNews}" method="post">
+                    <button class="readButton" type="submit">Read</button>
+
+                    <input type="text" name="text" id="inputText" value="1">
+                </form>
             </div>
             <div class="card pos4">
                 <p class="heading">The Timeless Elegance</p>
                 <p class="description">In the captivating image captured by the lens of nature's poet, we find ourselves immersed in the tranquil embrace of a majestic tree. This arboreal masterpiece stands as a silent guardian, its branches reaching towards the sky, and its roots firmly anchored in the earth below.</p>
                 <img src="https://i.pinimg.com/236x/52/e9/f5/52e9f55be3f9ff605a658b71c07e1b8e.jpg" alt="" class="picture">
-                <button class="readButton">Read</button>
+                <form th:action="@{/readNews}" method="post">
+                    <button class="readButton" type="submit">Read</button>
+
+                    <input type="text" name="text" id="inputText" value="1">
+                </form>
             </div>
             <div class="card pos5">
                 <p class="heading">The Unseen Benefits of Trees Revealed</p>
                 <p class="description">In the serene tableau captured in this image, the spotlight is on a singular tree, standing tall amidst the landscape like a silent guardian of well-being. Beyond its aesthetic charm, this picture prompts us to delve into the myriad ways trees contribute to our lives, offering a bounty of benefits that often go unnoticed.</p>
                 <img src="https://i.pinimg.com/236x/40/c3/41/40c341d4ac770d275efac452c34dd6d6.jpg" alt="" class="picture">
-                <button class="readButton">Read</button>
+                <form th:action="@{/readNews}" method="post">
+                    <button class="readButton" type="submit">Read</button>
+
+                    <input type="text" name="text" id="inputText" value="1">
+                </form>
             </div>
         </div>
     </main>
